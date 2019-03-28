@@ -1,0 +1,97 @@
+
+
+*Keeping fork up-to-date*
+
+I did the following (don't need to do it again)
+
+```
+git remote add upstream git://github.com/qmk/qmk_firmware.git
+git fetch upstream
+```
+
+
+Update with the following
+
+```
+git pull upstream master
+```
+
+## Flashing
+
+Check out the dependencies here
+
+https://github.com/qmk/qmk_toolbox
+
+```
+brew tap osx-cross/avr
+brew tap PX4/homebrew-px4
+brew install avr-gcc
+brew install dfu-programmer
+brew install gcc-arm-none-eabi
+brew install avrdude
+```
+
+### qmk_toolbox
+
+You can us the visual tool (I ended up NOT using this, just do what is in the README of the keyboard)
+
+https://github.com/qmk/qmk_toolbox/releases
+
+
+## My Keyboards
+
+### Levinson
+
+### Ergodox-ez
+
+Download the executable and do as in the local docs.
+
+https://www.pjrc.com/teensy/loader_cli.html
+
+~/Downloads/teensy_loader_cli -mmcu=atmega32u4 -w qmk_firmware/ergodox_ez_default.hex
+
+or better, copy `teensy_loader_cli` to ~/bin/ and just run the following
+
+```
+make ergodox_ez:ryan:teensy
+```
+
+
+
+
+## Notes
+
+```
+enum custom_keycodes {
+  MY_MACRO = SAFE_RANGE
+};
+
+//...
+
+case MY_MACRO: {
+  if (record->event.pressed) {
+    key_timer = timer_read();
+    register_mods(MOD_BIT(KC_LCTL));
+  }
+  else if (timer_elapsed(key_timer) < TAPPING_TERM) {
+    unregister_mods(MOD_BIT(KC_LCTL));
+    register_mods(MOD_BIT(KC_LSFT));
+    register_code(KC_EQL);
+    unregister_code(KC_EQL);
+    unregister_mods(MOD_BIT(KC_LSFT));
+  }
+  else {
+    unregister_mods(MOD_BIT(KC_LCTL));
+  }
+  return false;
+}
+
+//...
+```
+
+
+```
+#define IGNORE_MOD_TAP_INTERRUPT
+#define TAPPING_FORCE_HOLD
+```
+
