@@ -965,7 +965,7 @@ enum custom_keycodes {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      |StrctV|DebugV|ProjV | GitV |ToolL |ToolD |ToolU |ToolR |TMnMx |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |MaxMin| Term |SupMC |ParamI|      |      |      |      |
+ * |      |      |      |CloseT|MaxMin| Term |SupMC |ParamI|      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 #define INAV_L00     _______
@@ -989,7 +989,7 @@ enum custom_keycodes {
 #define INAV_L30     _______
 #define INAV_L31     _______
 #define INAV_L32     _______
-#define INAV_L33     _______
+#define INAV_L33     LSFT(LGUI(KC_F4))
 #define INAV_L34     LGUI(LSFT(KC_F12))
 #define INAV_L35     LALT(KC_F12)
 
@@ -1005,10 +1005,10 @@ enum custom_keycodes {
 #define INAV_R13     LGUI(LALT(KC_RIGHT))
 #define INAV_R14     LALT(KC_F7)
 #define INAV_R15     _______
-#define INAV_R20     LSFT(LGUI(KC_LEFT))
-#define INAV_R21     LSFT(LGUI(KC_DOWN))
-#define INAV_R22     LSFT(LGUI(KC_UP))
-#define INAV_R23     LSFT(LGUI(KC_RIGHT))
+#define INAV_R20     _______
+#define INAV_R21     KC_F2
+#define INAV_R22     LSFT(KC_F2)
+#define INAV_R23     _______
 #define INAV_R24     LSFT(LGUI(KC_QUOT))
 #define INAV_R25     _______
 #define INAV_R30     LGUI(KC_U)
@@ -1024,7 +1024,7 @@ enum custom_keycodes {
  * ,-----------------------------------------------------------------------------------.
  * |      |      |Rename|ChSig |ExtrtM|ExtrtV|Scrtch| New  | Copy | Move |Delete|      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |ExtSel|Surnd |Commnt|Format|      |BrkPts|PlyRes| Over |  In  |  Out |      |
+ * |      |ExtSel|Surnd |Commnt|Format|Suggst|BrkPts|PlyRes| Over |  In  |  Out |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |ImplM |OverM |GenCd |LiveT |      |TogBrk| Eval |CmpFi |CmpPrj|CallHi|      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -1042,7 +1042,7 @@ enum custom_keycodes {
 #define IDEA_L12     LALT(LGUI(KC_T))
 #define IDEA_L13     LGUI(KC_SLSH)
 #define IDEA_L14     LALT(LGUI(KC_L))
-#define IDEA_L15     _______
+#define IDEA_L15     LALT(KC_ENTER)
 #define IDEA_L20     _______
 #define IDEA_L21     LCTL(KC_O)
 #define IDEA_L22     LCTL(KC_I)
