@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   QWER_L01, QWER_L02, QWER_L03, QWER_L04, QWER_L05, QWER_R00, QWER_R01, QWER_R02, QWER_R03, QWER_R04,  \
   QWER_L11, QWER_L12, QWER_L13, QWER_L14, QWER_L15, QWER_R10, QWER_R11, QWER_R12, QWER_R13, QWER_R14,  \
   QWER_L21, QWER_L22, QWER_L23, QWER_L24, QWER_L25, QWER_R20, QWER_R21, QWER_R22, QWER_R23, QWER_R24,  \
-              XXXXXXX, XXXXXXX,                                                   XXXXXXX, XXXXXXX,    \
+              KC_LGUI, QWER_L33,                                                   QWER_R32, KC_LGUI,  \
                                       QWER_L34, QWER_L35,  QWER_R30, QWER_R31,                                          \
                                       QWER_L33,  XXXXXXX,   XXXXXXX,  QWER_R32,                                           \
                                       XXXXXXX,   XXXXXXX,    XXXXXXX, XXXXXXX
@@ -36,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   COLE_L01, COLE_L02, COLE_L03, COLE_L04, COLE_L05, COLE_R00, COLE_R01, COLE_R02, COLE_R03, COLE_R04,  \
   COLE_L11, COLE_L12, COLE_L13, COLE_L14, COLE_L15, COLE_R10, COLE_R11, COLE_R12, COLE_R13, COLE_R14,  \
   COLE_L21, COLE_L22, COLE_L23, COLE_L24, COLE_L25, COLE_R20, COLE_R21, COLE_R22, COLE_R23, COLE_R24,  \
-              XXXXXXX, XXXXXXX,                                                   XXXXXXX, XXXXXXX,    \
+              KC_LGUI, COLE_L33,                                                   COLE_R32, KC_LGUI,  \
                                       COLE_L34, COLE_L35,  COLE_R30, COLE_R31,                                          \
                                       COLE_L33,  XXXXXXX,   XXXXXXX,  COLE_R32,                                           \
                                       XXXXXXX,   XXXXXXX,    XXXXXXX, XXXXXXX

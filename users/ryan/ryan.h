@@ -166,12 +166,12 @@ enum custom_keycodes {
 #define QWER_L05     KC_T
 #define QWER_L10     KC_LCTL
 #define QWER_L11     KC_A
-#define QWER_L12     MT(MOD_LGUI,KC_S)
+#define QWER_L12     KC_S
 #define QWER_L13     LT(_NAV,KC_D)
 #define QWER_L14     MT(MOD_LCTL,KC_F)
 #define QWER_L15     LT(_CHROME,KC_G)
 #define QWER_L20     KC_LSFT 
-#define QWER_L21     KC_Z
+#define QWER_L21     MT(MOD_LGUI,KC_Z)
 #define QWER_L22     KC_X
 #define QWER_L23     KC_C
 #define QWER_L24     KC_V
@@ -192,14 +192,14 @@ enum custom_keycodes {
 #define QWER_R10     LT(_CHROME,KC_H)
 #define QWER_R11     MT(MOD_RCTL,KC_J)
 #define QWER_R12     LT(_NAV,KC_K)
-#define QWER_R13     MT(MOD_RGUI,KC_L)
+#define QWER_R13     KC_L
 #define QWER_R14     KC_SCLN
 #define QWER_R15     KC_QUOT
 #define QWER_R20     KC_N
 #define QWER_R21     KC_M
 #define QWER_R22     KC_COMM
 #define QWER_R23     KC_DOT
-#define QWER_R24     KC_SLSH
+#define QWER_R24     MT(MOD_RGUI,KC_SLSH)
 #define QWER_R25     KC_ENTER
 #define QWER_R30     LT(_RAISE,KC_SPC)
 #define QWER_R31     OSL(_NUM)
@@ -214,9 +214,9 @@ enum custom_keycodes {
  * ,-----------------------------------------------------------------------------------.
  * |      |   Q  |_VWN/W|_VHN/F|_IDN/P|   B  |   J  |_IDN/L|_VHN/U|_VWK/Y|   ;  |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |Alt/A |Gui/R |_NAV/S|Ctl/T |_CHR/G|_CHR/M|Ctl/N |_NAV/E|Gui/I |Alt/O |      |
+ * |      |Alt/A |   R  |_NAV/S|Ctl/T |_CHR/G|_CHR/M|Ctl/N |_NAV/E|   I  |Alt/O |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |   Z  |_VWK/X|_VHM/C|_IDE/D|   V  |   K  |_IDE/H|_VHM/,|_VWK/.|   '  |      |
+ * |      |Gui/Z |_VWK/X|_VHM/C|_IDE/D|   V  |   K  |_IDE/H|_VHM/,|_VWK/.|Gui/' |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      | _ADJ | _LOW |_G/Ent|_R/Spc| _SFT | _ADJ |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -229,12 +229,12 @@ enum custom_keycodes {
 #define COLE_L05     KC_B
 #define COLE_L10     XXXXXXX
 #define COLE_L11     KC_A
-#define COLE_L12     MT(MOD_LGUI,KC_R)
+#define COLE_L12     KC_R
 #define COLE_L13     LT(_NAV,KC_S)
 #define COLE_L14     MT(MOD_LCTL,KC_T)
 #define COLE_L15     LT(_CHROME,KC_G)
 #define COLE_L20     XXXXXXX
-#define COLE_L21     MT(MOD_LSFT,KC_Z)
+#define COLE_L21     MT(MOD_LGUI,KC_Z)
 #define COLE_L22     LT(_VWORK,KC_X)
 #define COLE_L23     LT(_VHOME,KC_C)
 #define COLE_L24     LT(_IDEA,KC_D)
@@ -255,14 +255,14 @@ enum custom_keycodes {
 #define COLE_R10     LT(_CHROME,KC_M)
 #define COLE_R11     MT(MOD_RCTL,KC_N)
 #define COLE_R12     LT(_NAV,KC_E)
-#define COLE_R13     MT(MOD_RGUI,KC_I)
+#define COLE_R13     KC_I
 #define COLE_R14     KC_O
 #define COLE_R15     XXXXXXX 
 #define COLE_R20     KC_K
 #define COLE_R21     LT(_IDEA,KC_H)
 #define COLE_R22     LT(_VHOME,KC_COMM)
 #define COLE_R23     LT(_VWORK,KC_DOT)
-#define COLE_R24     KC_QUOT
+#define COLE_R24     MT(MOD_RGUI,KC_QUOT)
 #define COLE_R25     XXXXXXX
 #define COLE_R30     LT(_RAISE,KC_SPC)
 #define COLE_R31     OSL(_NUM)
@@ -878,9 +878,9 @@ enum custom_keycodes {
 #define VWNAV_R14     VIM_WORK_SPRING_CONFIGS
 #define VWNAV_R15     _______
 #define VWNAV_R20     VIM_WORK_DIR_MIGRATIONS
-#define VWNAV_R21     VIM_WORK_GET_MIGRATIONS_SHARED
+#define VWNAV_R21     _______
 #define VWNAV_R22     VIM_WORK_GET_MIGRATIONS_CLIENT
-#define VWNAV_R23     _______
+#define VWNAV_R23     VIM_WORK_GET_MIGRATIONS_SHARED
 #define VWNAV_R24     _______
 #define VWNAV_R25     _______
 #define VWNAV_R30     _______

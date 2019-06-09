@@ -32,22 +32,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   QWER_L00, QWER_L01, QWER_L02, QWER_L03, QWER_L04, QWER_L05, KC_LBRACKET,
   QWER_L10, QWER_L11, QWER_L12, QWER_L13, QWER_L14, QWER_L15,
   QWER_L20, QWER_L21, QWER_L22, QWER_L23, QWER_L24, QWER_L25, KC_FN1,
-  QWER_L30, QWER_L31, QWER_L32, QWER_L33, QWER_L34, 
+  _______, QWER_L30, QWER_L31, QWER_L32, QWER_L33, 
 
                                                   KC_MPLY,  TG(_MOUSE),
                                                             KC_LALT,
-                                      QWER_L35,  LOWER,    KC_LGUI,
+                                      QWER_L34,  QWER_L35,    KC_LGUI,
 
   // right hand
   KC_ESC,      KC_6, KC_7,  KC_8,    KC_9,    KC_0,                KC_DEL,
   KC_RBRACKET, QWER_R00, QWER_R01, QWER_R02, QWER_R03, QWER_R04, QWER_R05,
                QWER_R10, QWER_R11, QWER_R12, QWER_R13, QWER_R14, QWER_R15,
   KC_FN1,      QWER_R20, QWER_R21, QWER_R22, QWER_R23, QWER_R24, QWER_R25,
-               QWER_R31, QWER_R32, QWER_R33, QWER_R34, QWER_R35,
+               QWER_R32, QWER_R33, QWER_R34, QWER_R35, _______,
 
   TT(_NUM), TG(_MOUSE),
   KC_LALT,
-  KC_LGUI,  RAISE,      QWER_R30
+  KC_LGUI,  QWER_R30,      QWER_R31
 ),
 
 [_COLE] = LAYOUT_ergodox(
