@@ -222,7 +222,7 @@ enum custom_keycodes {
  * `-----------------------------------------------------------------------------------'
  */
 #define COLE_L00     XXXXXXX
-#define COLE_L01     KC_Q
+#define COLE_L01     MT(MOD_LSFT,KC_Q)
 #define COLE_L02     LT(_VWNAV,KC_W)
 #define COLE_L03     LT(_VHNAV,KC_F)
 #define COLE_L04     LT(_INAV,KC_P)
@@ -250,7 +250,7 @@ enum custom_keycodes {
 #define COLE_R01     LT(_INAV,KC_L)
 #define COLE_R02     LT(_VHNAV,KC_U)
 #define COLE_R03     LT(_VWNAV,KC_Y)
-#define COLE_R04     KC_SCLN
+#define COLE_R04     MT(MOD_RSFT,KC_SCLN)
 #define COLE_R05     XXXXXXX
 #define COLE_R10     LT(_CHROME,KC_M)
 #define COLE_R11     MT(MOD_RCTL,KC_N)

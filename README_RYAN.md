@@ -56,8 +56,18 @@ or better, copy `teensy_loader_cli` to ~/bin/ and just run the following
 make ergodox_ez:ryan:teensy
 ```
 
+## Swapping micro controllers
+
+Sometimes its handy to grab a pro micro from another board, but sometimes it doesn't seem to register.
+I find that first flashing the pro micro being moved to the board being moved to first, by itself does the trick.
+Then flash the board again connected.
 
 
+## Switch Tester
+
+I used the handwired/dactyl_manuform/6x6 and https://github.com/ogatatsu/Cherry-Mx-Bitboard-Re socketed single switches.
+To print them, use KiCad, clone the repo, go into the pitch that you want (18.5, 19.05, 19) select the *.kicad_pcb file
+and create gerber files to send to allpcb.com.  In the order form I just took all the defaults.
 
 ## Notes
 
