@@ -143,45 +143,44 @@ enum custom_keycodes {
   VIM_WORK_LIST_MODELS,
   VIM_WORK_LIST_STORES,
   VIM_WORK_LIST_STYLES,
-  VIM_WORK_FILTERS_INTERCEPTORS,
   VIM_WORK_SPRING_CONFIGS,
 };
 
-/* Qwerty
+/* Qwerty: This is to help others understand 40% keyboards
  * ,-----------------------------------------------------------------------------------.
- * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
+ * | Esc  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Ctrl |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * | Tab  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |Shift |   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  | Enter|
+ * |Shift |   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  | Shift|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      | _ADJ | _LOW |_G/Ent|_R/Spc| _SFT | _ADJ |      |      |      |
+ * | Ctrl | Alt  | Gui  | _ADJ | _VWK | Enter| Spc  | _VWK | Left | Down |  Up  | Right|
  * `-----------------------------------------------------------------------------------'
  */
-#define QWER_L00     KC_TAB
+#define QWER_L00     KC_ESC
 #define QWER_L01     KC_Q
 #define QWER_L02     KC_W
 #define QWER_L03     KC_E
 #define QWER_L04     KC_R
 #define QWER_L05     KC_T
-#define QWER_L10     KC_LCTL
+#define QWER_L10     KC_TAB
 #define QWER_L11     KC_A
 #define QWER_L12     KC_S
-#define QWER_L13     LT(_NAV,KC_D)
-#define QWER_L14     MT(MOD_LCTL,KC_F)
-#define QWER_L15     LT(_CHROME,KC_G)
+#define QWER_L13     KC_D
+#define QWER_L14     KC_F
+#define QWER_L15     KC_G
 #define QWER_L20     KC_LSFT 
-#define QWER_L21     MT(MOD_LGUI,KC_Z)
+#define QWER_L21     KC_Z
 #define QWER_L22     KC_X
 #define QWER_L23     KC_C
 #define QWER_L24     KC_V
 #define QWER_L25     KC_B
-#define QWER_L30     XXXXXXX
-#define QWER_L31     XXXXXXX
-#define QWER_L32     XXXXXXX
+#define QWER_L30     KC_LCTL
+#define QWER_L31     KC_LALT
+#define QWER_L32     KC_LGUI
 #define QWER_L33     OSL(_ADJUST)
-#define QWER_L34     OSL(_LOWER)
-#define QWER_L35     LT(_GIT,KC_ENTER)
+#define QWER_L34     OSL(_VWORK)
+#define QWER_L35     KC_ENTER
 
 #define QWER_R00     KC_Y
 #define QWER_R01     KC_U
@@ -189,9 +188,9 @@ enum custom_keycodes {
 #define QWER_R03     KC_O
 #define QWER_R04     KC_P
 #define QWER_R05     KC_BSPC
-#define QWER_R10     LT(_CHROME,KC_H)
-#define QWER_R11     MT(MOD_RCTL,KC_J)
-#define QWER_R12     LT(_NAV,KC_K)
+#define QWER_R10     KC_H
+#define QWER_R11     KC_J
+#define QWER_R12     KC_K
 #define QWER_R13     KC_L
 #define QWER_R14     KC_SCLN
 #define QWER_R15     KC_QUOT
@@ -199,24 +198,87 @@ enum custom_keycodes {
 #define QWER_R21     KC_M
 #define QWER_R22     KC_COMM
 #define QWER_R23     KC_DOT
-#define QWER_R24     MT(MOD_RGUI,KC_SLSH)
-#define QWER_R25     KC_ENTER
-#define QWER_R30     LT(_RAISE,KC_SPC)
-#define QWER_R31     OSL(_NUM)
-#define QWER_R32     OSL(_ADJUST)
-#define QWER_R33     XXXXXXX
-#define QWER_R34     XXXXXXX
-#define QWER_R35     XXXXXXX
+#define QWER_R24     KC_SLSH
+#define QWER_R25     KC_RSFT
+#define QWER_R30     KC_SPC
+#define QWER_R31     OSL(_VWORK)
+#define QWER_R32     KC_LEFT
+#define QWER_R33     KC_DOWN
+#define QWER_R34     KC_UP
+#define QWER_R35     KC_RIGHT
+
+
+
+/* QWERTY Helper : Give example with minimal one layer (excluding system)
+ * ,-----------------------------------------------------------------------------------.
+ * |   ~  |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   (  |   )  | Del  |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  |   .  |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |      |   -  |   =  |   [  |   ]  |   \  |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |      |   _  |   +  |   {  |   }  |   |  |
+ * `-----------------------------------------------------------------------------------'
+ */
+#define VWORK_L00     KC_TILD
+#define VWORK_L01     KC_EXLM
+#define VWORK_L02     KC_AT
+#define VWORK_L03     KC_HASH
+#define VWORK_L04     KC_DLR
+#define VWORK_L05     KC_PERC
+#define VWORK_L10     KC_GRV
+#define VWORK_L11     KC_1
+#define VWORK_L12     KC_2
+#define VWORK_L13     KC_3
+#define VWORK_L14     KC_4
+#define VWORK_L15     KC_5
+#define VWORK_L20     KC_F1
+#define VWORK_L21     KC_F2
+#define VWORK_L22     KC_F3
+#define VWORK_L23     KC_F4
+#define VWORK_L24     KC_F5
+#define VWORK_L25     KC_F6
+#define VWORK_L30     KC_F7
+#define VWORK_L31     KC_F8
+#define VWORK_L32     KC_F9
+#define VWORK_L33     KC_F10
+#define VWORK_L34     KC_F11
+#define VWORK_L35     KC_F12
+
+#define VWORK_R00     KC_CIRC
+#define VWORK_R01     KC_AMPR
+#define VWORK_R02     KC_ASTR
+#define VWORK_R03     KC_LPRN
+#define VWORK_R04     KC_RPRN
+#define VWORK_R05     KC_DEL
+#define VWORK_R10     KC_6
+#define VWORK_R11     KC_7
+#define VWORK_R12     KC_8
+#define VWORK_R13     KC_9
+#define VWORK_R14     KC_0
+#define VWORK_R15     KC_DOT
+#define VWORK_R20     XXXXXXX
+#define VWORK_R21     KC_MINS
+#define VWORK_R22     KC_EQL
+#define VWORK_R23     KC_LBRC
+#define VWORK_R24     KC_RBRC
+#define VWORK_R25     KC_BSLS
+#define VWORK_R30     XXXXXXX
+#define VWORK_R31     KC_UNDS
+#define VWORK_R32     KC_PLUS
+#define VWORK_R33     KC_LCBR
+#define VWORK_R34     KC_RCBR
+#define VWORK_R35     KC_PIPE
 
 
 
 /* COLEMAK-DH 
  * ,-----------------------------------------------------------------------------------.
- * |      |   Q  |_VWN/W|_VHN/F|_IDN/P|   B  |   J  |_IDN/L|_VHN/U|_VWK/Y|   ;  |      |
+ * |      |   Q  |_VWN/W|   F  |_IDN/P|_VHN/B|_VHN/J|_IDN/L|   U  |_VWK/Y|   ;  |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |Alt/A |   R  |_NAV/S|Ctl/T |_CHR/G|_CHR/M|Ctl/N |_NAV/E|   I  |Alt/O |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |Gui/Z |_VWK/X|_VHM/C|_IDE/D|   V  |   K  |_IDE/H|_VHM/,|_VWK/.|Gui/' |      |
+ * |      |Gui/Z |_VWH/X|   C  |_IDE/D|_VHM/V|_VHM/K|_IDE/H|   ,  |_VWH/.|Gui/' |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      | _ADJ | _LOW |_G/Ent|_R/Spc| _SFT | _ADJ |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -224,9 +286,9 @@ enum custom_keycodes {
 #define COLE_L00     XXXXXXX
 #define COLE_L01     MT(MOD_LSFT,KC_Q)
 #define COLE_L02     LT(_VWNAV,KC_W)
-#define COLE_L03     LT(_VHNAV,KC_F)
+#define COLE_L03     KC_F
 #define COLE_L04     LT(_INAV,KC_P)
-#define COLE_L05     KC_B
+#define COLE_L05     LT(_VHNAV,KC_B)
 #define COLE_L10     XXXXXXX
 #define COLE_L11     KC_A
 #define COLE_L12     KC_R
@@ -235,10 +297,10 @@ enum custom_keycodes {
 #define COLE_L15     LT(_CHROME,KC_G)
 #define COLE_L20     XXXXXXX
 #define COLE_L21     MT(MOD_LGUI,KC_Z)
-#define COLE_L22     LT(_VWORK,KC_X)
-#define COLE_L23     LT(_VHOME,KC_C)
+#define COLE_L22     KC_X
+#define COLE_L23     KC_C
 #define COLE_L24     LT(_IDEA,KC_D)
-#define COLE_L25     KC_V
+#define COLE_L25     LT(_VHOME,KC_V)
 #define COLE_L30     XXXXXXX
 #define COLE_L31     XXXXXXX
 #define COLE_L32     XXXXXXX
@@ -246,9 +308,9 @@ enum custom_keycodes {
 #define COLE_L34     OSL(_LOWER)
 #define COLE_L35     LT(_GIT,KC_ENTER)
 
-#define COLE_R00     KC_J
+#define COLE_R00     LT(_VHNAV,KC_J)
 #define COLE_R01     LT(_INAV,KC_L)
-#define COLE_R02     LT(_VHNAV,KC_U)
+#define COLE_R02     KC_U
 #define COLE_R03     LT(_VWNAV,KC_Y)
 #define COLE_R04     MT(MOD_RSFT,KC_SCLN)
 #define COLE_R05     XXXXXXX
@@ -258,9 +320,9 @@ enum custom_keycodes {
 #define COLE_R13     KC_I
 #define COLE_R14     KC_O
 #define COLE_R15     XXXXXXX 
-#define COLE_R20     KC_K
+#define COLE_R20     LT(_VHOME,KC_K)
 #define COLE_R21     LT(_IDEA,KC_H)
-#define COLE_R22     LT(_VHOME,KC_COMM)
+#define COLE_R22     KC_COMM
 #define COLE_R23     LT(_VWORK,KC_DOT)
 #define COLE_R24     MT(MOD_RGUI,KC_QUOT)
 #define COLE_R25     XXXXXXX
@@ -527,11 +589,11 @@ enum custom_keycodes {
  * ,-----------------------------------------------------------------------------------.
  * |      |      | Play | Prev | Next |      |  *   |  7   |  8   |  9   |      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      | Reset|Colemk|Qwerty|ScrnSh|  +   |  4   |  5   |  6   |      |      |
+ * |      |      | Reset|Colemk|Qwerty|ScrnSh|  +   |  4   |  5   |  6   |  0   |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      | Mute | Vol- | Vol+ |SetSnd|  -   |  1   |  2   |  3   |  /   |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      | Bspc |  0   |  .   |      |      |      |
+ * |      |      |      |      |      |      | Bspc | Del  |  .   |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 #define ADJ_L00     XXXXXXX
@@ -569,7 +631,7 @@ enum custom_keycodes {
 #define ADJ_R11     KC_4
 #define ADJ_R12     KC_5
 #define ADJ_R13     KC_6
-#define ADJ_R14     XXXXXXX
+#define ADJ_R14     KC_0
 #define ADJ_R15     XXXXXXX
 #define ADJ_R20     KC_MINS
 #define ADJ_R21     KC_1
@@ -578,7 +640,7 @@ enum custom_keycodes {
 #define ADJ_R24     KC_SLSH
 #define ADJ_R25     XXXXXXX
 #define ADJ_R30     KC_BSPC
-#define ADJ_R31     KC_0
+#define ADJ_R31     KC_DEL
 #define ADJ_R32     KC_DOT
 #define ADJ_R33     XXXXXXX
 #define ADJ_R34     XXXXXXX
@@ -768,67 +830,6 @@ enum custom_keycodes {
 #define VHNAV_R34     _______
 #define VHNAV_R35     _______
 
-/* VWORK 
- * ,-----------------------------------------------------------------------------------.
- * |      |      |      |      |      |      |      |      |      |      |      |      |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
- * `-----------------------------------------------------------------------------------'
- */
-#define VWORK_L00     _______
-#define VWORK_L01     _______
-#define VWORK_L02     _______
-#define VWORK_L03     _______
-#define VWORK_L04     _______
-#define VWORK_L05     _______
-#define VWORK_L10     _______
-#define VWORK_L11     _______
-#define VWORK_L12     _______
-#define VWORK_L13     _______
-#define VWORK_L14     _______
-#define VWORK_L15     _______
-#define VWORK_L20     _______
-#define VWORK_L21     _______
-#define VWORK_L22     _______
-#define VWORK_L23     _______
-#define VWORK_L24     _______
-#define VWORK_L25     _______
-#define VWORK_L30     _______
-#define VWORK_L31     _______
-#define VWORK_L32     _______
-#define VWORK_L33     _______
-#define VWORK_L34     _______
-#define VWORK_L35     _______
-
-#define VWORK_R00     _______
-#define VWORK_R01     _______
-#define VWORK_R02     _______
-#define VWORK_R03     _______
-#define VWORK_R04     _______
-#define VWORK_R05     _______
-#define VWORK_R10     _______
-#define VWORK_R11     _______
-#define VWORK_R12     _______
-#define VWORK_R13     _______
-#define VWORK_R14     _______
-#define VWORK_R15     _______
-#define VWORK_R20     _______
-#define VWORK_R21     _______
-#define VWORK_R22     _______
-#define VWORK_R23     _______
-#define VWORK_R24     _______
-#define VWORK_R25     _______
-#define VWORK_R30     _______
-#define VWORK_R31     _______
-#define VWORK_R32     _______
-#define VWORK_R33     _______
-#define VWORK_R34     _______
-#define VWORK_R35     _______
-
 /* VWNAV 
  * ,-----------------------------------------------------------------------------------.
  * |      |SCRPTS|NOTES |SrchC | TP   |      |CDAUTO|CDROOT|CDFETP|CDSHOP|      |      |
@@ -874,7 +875,7 @@ enum custom_keycodes {
 #define VWNAV_R10     _______
 #define VWNAV_R11     _______
 #define VWNAV_R12     _______
-#define VWNAV_R13     VIM_WORK_FILTERS_INTERCEPTORS
+#define VWNAV_R13     _______
 #define VWNAV_R14     VIM_WORK_SPRING_CONFIGS
 #define VWNAV_R15     _______
 #define VWNAV_R20     VIM_WORK_DIR_MIGRATIONS

@@ -548,11 +548,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":WorkListStyles"SS_TAP(X_ENTER));
       }
         break;
-    case VIM_WORK_FILTERS_INTERCEPTORS:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkFiltersAndInterceptors"SS_TAP(X_ENTER));
-      }
-        break;
     case VIM_WORK_SPRING_CONFIGS:
       if (record->event.pressed) {
         SEND_STRING(":WorkSpringConfigs"SS_TAP(X_ENTER));
