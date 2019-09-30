@@ -7,6 +7,32 @@
 //#define _______ KC_TRNS
 #define XXXXXXX KC_NO
 
+// Concepts:
+//     Environments:  All my work is pretty much done in 3 apps each has one or more layers dedicated to it.
+//         Vim: I work most of the time in vim in a tmux env to do everything from coding, referencing, to emails.
+//         IntelliJ: I use it to do all dynamically type coding while using IntelliJ to do Java.
+//         Chrome: I use chrome and devtools
+//
+//     Feature: Layers are sometimes divided by features. Common features are tried to be mapped to similar keys and patterns
+//
+// -Global 
+//     Layers: (Nav, Lower, Raise, Shift)
+//     Features: navigation
+// -Vim Navigation
+//     Layers: (VHNav, Git, VWNav)
+// -Vim Editor
+//     Layers: (VHome)
+// -Idea Navigation
+//     Layers: (INav)
+// -Idea Editor
+//     Layers: (Idea)
+// -Chrome
+//     Layers: (Chrome)
+//     Features: navigation, editor
+//
+//
+//
+//
 //I don't know the reason why but ...
 //- ergodox needs these in the order that they appear in keyboard.c but they don't need the int assignment
 //- levinson needs the integer assignmest but they don't need to be in any order in keyboard.c, but it needs DVORAK at index 1
@@ -35,7 +61,6 @@ enum custom_keycodes {
   COLEMAKDH,
   LOWER,
   RAISE,
-  MOUSE,
   EPRM,
   VRSN,
   RGB_SLD,
@@ -274,11 +299,11 @@ enum custom_keycodes {
 
 /* COLEMAK-DH 
  * ,-----------------------------------------------------------------------------------.
- * |      |   Q  |_VWN/W|   F  |_IDN/P|_VHN/B|_VHN/J|_IDN/L|   U  |_VWK/Y|   ;  |      |
+ * |      |Sft/Q |_VWN/W|   F  |_IDN/P|_VHN/B|_VHN/J|_IDN/L|   U  |_VWK/Y|Sft/; |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |Alt/A |   R  |_NAV/S|Ctl/T |_CHR/G|_CHR/M|Ctl/N |_NAV/E|   I  |Alt/O |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |Gui/Z |_VWH/X|   C  |_IDE/D|_VHM/V|_VHM/K|_IDE/H|   ,  |_VWH/.|Gui/' |      |
+ * |      |Gui/Z |   X  |   C  |_IDE/D|_VHM/V|_VHM/K|_IDE/H|   ,  |   .  |Gui/' |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      | _ADJ | _LOW |_G/Ent|_R/Spc| _SFT | _ADJ |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -290,7 +315,7 @@ enum custom_keycodes {
 #define COLE_L04     LT(_INAV,KC_P)
 #define COLE_L05     LT(_VHNAV,KC_B)
 #define COLE_L10     XXXXXXX
-#define COLE_L11     KC_A
+#define COLE_L11     MT(MOD_LALT,KC_A)
 #define COLE_L12     KC_R
 #define COLE_L13     LT(_NAV,KC_S)
 #define COLE_L14     MT(MOD_LCTL,KC_T)
@@ -318,7 +343,7 @@ enum custom_keycodes {
 #define COLE_R11     MT(MOD_RCTL,KC_N)
 #define COLE_R12     LT(_NAV,KC_E)
 #define COLE_R13     KC_I
-#define COLE_R14     KC_O
+#define COLE_R14     MT(MOD_RALT,KC_O)
 #define COLE_R15     XXXXXXX 
 #define COLE_R20     LT(_VHOME,KC_K)
 #define COLE_R21     LT(_IDEA,KC_H)
@@ -335,71 +360,8 @@ enum custom_keycodes {
  
 
 
-/* GIT 
- * ,-----------------------------------------------------------------------------------.
- * |      |      |      |      |PKAXE |PKAXEC| C-F  | C-N  | C-P  | C-L  |      |      |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |STATUS|EDITIT|GMASTF|BLAME | A-F  | A-N  | A-P  | A-L  |      |      |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |DIFFI |DIFFM | GITV | Q-F  | Q-N  | Q-P  | Q-L  |      |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
- * `-----------------------------------------------------------------------------------'
- */
-#define GIT_L00     _______
-#define GIT_L01     _______
-#define GIT_L02     _______
-#define GIT_L03     _______
-#define GIT_L04     VIM_PICK_AXE
-#define GIT_L05     VIM_PICK_AXE_CURRENT_FILE
-#define GIT_L10     _______
-#define GIT_L11     _______
-#define GIT_L12     VIM_GIT_STATUS
-#define GIT_L13     VIM_EDIT_INDEX_TOGGLE
-#define GIT_L14     VIM_GIT_MASTER_FILE
-#define GIT_L15     VIM_GIT_BLAME
-#define GIT_L20     _______
-#define GIT_L21     _______
-#define GIT_L22     _______
-#define GIT_L23     VIM_DIFF_INDEX
-#define GIT_L24     VIM_DIFF_MASTER
-#define GIT_L25     VIM_GITV
-#define GIT_L30     _______
-#define GIT_L31     _______
-#define GIT_L32     _______
-#define GIT_L33     _______
-#define GIT_L34     _______
-#define GIT_L35     _______
-
-#define GIT_R00     VIM_CHANGE_FIRST
-#define GIT_R01     VIM_CHANGE_NEXT
-#define GIT_R02     VIM_CHANGE_PREV
-#define GIT_R03     VIM_CHANGE_LAST
-#define GIT_R04     _______
-#define GIT_R05     _______
-#define GIT_R10     VIM_ARGS_FIRST
-#define GIT_R11     VIM_ARGS_NEXT
-#define GIT_R12     VIM_ARGS_PREV
-#define GIT_R13     VIM_ARGS_LAST
-#define GIT_R14     _______
-#define GIT_R15     _______
-#define GIT_R20     VIM_QUICK_FIRST
-#define GIT_R21     VIM_QUICK_NEXT
-#define GIT_R22     VIM_QUICK_PREV
-#define GIT_R23     VIM_QUICK_LAST
-#define GIT_R24     _______
-#define GIT_R25     _______
-#define GIT_R30     _______
-#define GIT_R31     _______
-#define GIT_R32     _______
-#define GIT_R33     _______
-#define GIT_R34     _______
-#define GIT_R35     _______
-
-
-
 /* SFT
- * Using instead of OSM to get more keys
+ * Global: Shift Layer.  Using instead of OSM to get more keys
  * ,-----------------------------------------------------------------------------------.
  * |      |   Q  |   W  |   F  |   P  |   B  |   J  |   L  |   U  |   Y  |   ;  |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
@@ -461,7 +423,9 @@ enum custom_keycodes {
 #define SFT_R35     XXXXXXX
  
 
+
 /* Lower
+ * Global: Symbols
  * ,-----------------------------------------------------------------------------------.
  * |      |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   (  |   )  |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
@@ -525,14 +489,15 @@ enum custom_keycodes {
 
 
 /* Raise
+ * Global: Function Keys and Reference
  * ,-----------------------------------------------------------------------------------.
  * |      |Alias |WRKFLW|      |      |      |      |      |      |  F11 |  F12 |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |CDDEPL|CDDATA|CDSERV|CDCLNT|CDDTLS|   6  |CDROOT|   8  |   9  |   0  |      |
+ * |      |CDDEPL|CDDATA|CDSERV|CDCLNT|CDDTLS|      |CDROOT|      |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  |  F10 |      | 
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |CapsLk| Tab  |GuiBk |      |      |      |      |      |      |
+ * |      |      |      |      | Tab  |GuiBk |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 #define RAIS_L00     XXXXXXX
@@ -556,7 +521,7 @@ enum custom_keycodes {
 #define RAIS_L30     XXXXXXX
 #define RAIS_L31     XXXXXXX
 #define RAIS_L32     XXXXXXX
-#define RAIS_L33     KC_CAPSLOCK
+#define RAIS_L33     XXXXXXX
 #define RAIS_L34     KC_TAB
 #define RAIS_L35     LGUI(KC_BSPC)
 
@@ -566,11 +531,11 @@ enum custom_keycodes {
 #define RAIS_R03     KC_F11
 #define RAIS_R04     KC_F12
 #define RAIS_R05     XXXXXXX
-#define RAIS_R10     KC_6
+#define RAIS_R10     XXXXXXX
 #define RAIS_R11     VIM_WORK_DIR_ROOT
-#define RAIS_R12     KC_8
-#define RAIS_R13     KC_9
-#define RAIS_R14     KC_0
+#define RAIS_R12     XXXXXXX
+#define RAIS_R13     XXXXXXX
+#define RAIS_R14     XXXXXXX
 #define RAIS_R15     XXXXXXX
 #define RAIS_R20     KC_F6
 #define RAIS_R21     KC_F7
@@ -585,15 +550,18 @@ enum custom_keycodes {
 #define RAIS_R34     XXXXXXX
 #define RAIS_R35     XXXXXXX 
 
+
+
 /* Adjust
+ * Global: System and Numpad
  * ,-----------------------------------------------------------------------------------.
- * |      |      | Play | Prev | Next |      |  *   |  7   |  8   |  9   |      |      |
+ * |      |      | Play | Prev | Next |      |  *   |  7   |  8   |  9   |  /   |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |      | Reset|Colemk|Qwerty|ScrnSh|  +   |  4   |  5   |  6   |  0   |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      | Mute | Vol- | Vol+ |SetSnd|  -   |  1   |  2   |  3   |  /   |      |
+ * |      |      | Mute | Vol- | Vol+ |SetSnd|  -   |  1   |  2   |  3   |  .   |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      | Bspc | Del  |  .   |      |      |      |
+ * |      |      |      |      |      |      | Bspc | Del  |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 #define ADJ_L00     XXXXXXX
@@ -625,7 +593,7 @@ enum custom_keycodes {
 #define ADJ_R01     KC_7
 #define ADJ_R02     KC_8
 #define ADJ_R03     KC_9
-#define ADJ_R04     XXXXXXX
+#define ADJ_R04     KC_SLSH
 #define ADJ_R05     XXXXXXX
 #define ADJ_R10     KC_PLUS
 #define ADJ_R11     KC_4
@@ -637,22 +605,25 @@ enum custom_keycodes {
 #define ADJ_R21     KC_1
 #define ADJ_R22     KC_2
 #define ADJ_R23     KC_3
-#define ADJ_R24     KC_SLSH
+#define ADJ_R24     KC_DOT
 #define ADJ_R25     XXXXXXX
 #define ADJ_R30     KC_BSPC
 #define ADJ_R31     KC_DEL
-#define ADJ_R32     KC_DOT
+#define ADJ_R32     XXXXXXX
 #define ADJ_R33     XXXXXXX
 #define ADJ_R34     XXXXXXX
 #define ADJ_R35     XXXXXXX
 
+
+
 /* NAV 
+ * Global: System, Tmux, App, etc, Navigation
  * ,-----------------------------------------------------------------------------------.
  * |      |VQUIT |VWRITE|VPRVFI|VPREVP|PrevAp|TWINP |TPANEN|      |TWINN |      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |      |TSCRLL| PgUp | Home | Left | Down |  Up  |Right |      |      |
+ * |      |Zm0   |ZmOut |TSCRLL| PgUp | Home | Left | Down |  Up  |Right |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |AppWin|PgDown| End  |WkspL |      |      |WkspR |      |      |
+ * |      |FlScrn|ZmIn  |AppWin|PgDown| End  |WkspL |      |      |WkspR |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |TZMTOG|Enter | Bspc |AltBk | Del  |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -664,14 +635,14 @@ enum custom_keycodes {
 #define NAV_L04     VIM_DBL_TICK
 #define NAV_L05     LGUI(KC_TAB)
 #define NAV_L10     _______
-#define NAV_L11     _______
-#define NAV_L12     _______
+#define NAV_L11     LGUI(KC_0)
+#define NAV_L12     LGUI(KC_MINS)
 #define NAV_L13     TMUX_SCROLL
 #define NAV_L14     KC_PGUP
 #define NAV_L15     KC_HOME
 #define NAV_L20     _______
-#define NAV_L21     _______
-#define NAV_L22     _______
+#define NAV_L21     LCTL(LGUI(KC_F))
+#define NAV_L22     LGUI(KC_PLUS)
 #define NAV_L23     LGUI(KC_GRV)
 #define NAV_L24     KC_PGDOWN
 #define NAV_L25     KC_END
@@ -708,7 +679,9 @@ enum custom_keycodes {
 #define NAV_R35     _______
 
 
+
 /* VHOME 
+ * Vim: Editor
  * ,-----------------------------------------------------------------------------------.
  * |      |      |      |      |VPASTE|      |      | New  | Copy | Move | Del  |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
@@ -769,7 +742,10 @@ enum custom_keycodes {
 #define VHOME_R34     _______
 #define VHOME_R35     _______
 
+
+
 /* VHNAV 
+ * Vim: Navigation
  * ,-----------------------------------------------------------------------------------.
  * |      | IMPL | FINDP|      |FINDFI| MARKS|      | FNP  | TAGB | TAGS |USAGEF|      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
@@ -830,7 +806,74 @@ enum custom_keycodes {
 #define VHNAV_R34     _______
 #define VHNAV_R35     _______
 
+
+
+/* GIT 
+ * Vim: This is an extended vim layer
+ * ,-----------------------------------------------------------------------------------.
+ * |      |      |      |      |PKAXE |PKAXEC| C-F  | C-N  | C-P  | C-L  |      |      |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |      |STATUS|EDITIT|GMASTF|BLAME | A-F  | A-N  | A-P  | A-L  |      |      |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |      |      |DIFFI |DIFFM | GITV | Q-F  | Q-N  | Q-P  | Q-L  |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+#define GIT_L00     _______
+#define GIT_L01     _______
+#define GIT_L02     _______
+#define GIT_L03     _______
+#define GIT_L04     VIM_PICK_AXE
+#define GIT_L05     VIM_PICK_AXE_CURRENT_FILE
+#define GIT_L10     _______
+#define GIT_L11     _______
+#define GIT_L12     VIM_GIT_STATUS
+#define GIT_L13     VIM_EDIT_INDEX_TOGGLE
+#define GIT_L14     VIM_GIT_MASTER_FILE
+#define GIT_L15     VIM_GIT_BLAME
+#define GIT_L20     _______
+#define GIT_L21     _______
+#define GIT_L22     _______
+#define GIT_L23     VIM_DIFF_INDEX
+#define GIT_L24     VIM_DIFF_MASTER
+#define GIT_L25     VIM_GITV
+#define GIT_L30     _______
+#define GIT_L31     _______
+#define GIT_L32     _______
+#define GIT_L33     _______
+#define GIT_L34     _______
+#define GIT_L35     _______
+
+#define GIT_R00     VIM_CHANGE_FIRST
+#define GIT_R01     VIM_CHANGE_NEXT
+#define GIT_R02     VIM_CHANGE_PREV
+#define GIT_R03     VIM_CHANGE_LAST
+#define GIT_R04     _______
+#define GIT_R05     _______
+#define GIT_R10     VIM_ARGS_FIRST
+#define GIT_R11     VIM_ARGS_NEXT
+#define GIT_R12     VIM_ARGS_PREV
+#define GIT_R13     VIM_ARGS_LAST
+#define GIT_R14     _______
+#define GIT_R15     _______
+#define GIT_R20     VIM_QUICK_FIRST
+#define GIT_R21     VIM_QUICK_NEXT
+#define GIT_R22     VIM_QUICK_PREV
+#define GIT_R23     VIM_QUICK_LAST
+#define GIT_R24     _______
+#define GIT_R25     _______
+#define GIT_R30     _______
+#define GIT_R31     _______
+#define GIT_R32     _______
+#define GIT_R33     _______
+#define GIT_R34     _______
+#define GIT_R35     _______
+
+
+
 /* VWNAV 
+ * Vim: Work specific navigation
  * ,-----------------------------------------------------------------------------------.
  * |      |SCRPTS|NOTES |SrchC | TP   |      |CDAUTO|CDROOT|CDFETP|CDSHOP|      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
@@ -894,52 +937,53 @@ enum custom_keycodes {
 
 
 /* CHROME 
+ * Chrome: editor, navigation both browser and devtools
  * ,-----------------------------------------------------------------------------------.
- * |      |      |      |Search|      |Bkmrks|  A   |  S   |  W   |  D   |DevTls|      |
+ * |      |      |Search|      |FindFi|Bkmrks|  A   |  S   |  W   |  D   |      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |      |PrvPan|NxtPan|      |BRKPTS|PLYPAU|STPOVR|STPIN |STPOUT|      |
+ * |      |RunCmd|      |PrvPan|NxtPan|      |BRKPTS|PLYPAU|STPOVR|STPIN |STPOUT|      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      | Back | Fwd  |      | TabP |PgDown| PgUp | TabN | Eval |      |
+ * |      |HrdRld| Rld  | Back | Fwd  |      | TabP |PgDown| PgUp | TabN | Eval |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      | Home | End  |      |      |      |      |
+ * |      |      |      |      |DevTls|      | Home | End  |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 #define CHROME_L00     XXXXXXX
 #define CHROME_L01     XXXXXXX
-#define CHROME_L02     XXXXXXX
-#define CHROME_L03     LGUI(LSFT(KC_P))
-#define CHROME_L04     XXXXXXX
-#define CHROME_L05     LALT(LGUI(KC_B))
+#define CHROME_L02     LGUI(LALT(KC_F))         // shared search (across loaded resources)
+#define CHROME_L03     XXXXXXX
+#define CHROME_L04     LGUI(KC_O)               // shared file search (add @ for methods or ! for snippets)
+#define CHROME_L05     LALT(LGUI(KC_B))         // shares bookmarks
 #define CHROME_L10     XXXXXXX
-#define CHROME_L11     XXXXXXX
+#define CHROME_L11     LGUI(LSFT(KC_P))         // shared run command
 #define CHROME_L12     XXXXXXX
-#define CHROME_L13     LGUI(KC_LBRACKET)
-#define CHROME_L14     LGUI(KC_RBRACKET)
+#define CHROME_L13     LGUI(KC_LBRACKET)        // devtools prev pane
+#define CHROME_L14     LGUI(KC_RBRACKET)        // devtools next pane
 #define CHROME_L15     XXXXXXX
 #define CHROME_L20     XXXXXXX
-#define CHROME_L21     XXXXXXX
-#define CHROME_L22     XXXXXXX
-#define CHROME_L23     LGUI(KC_LEFT)
-#define CHROME_L24     LGUI(KC_RIGHT)
+#define CHROME_L21     LGUI(LSFT(KC_R))         // hard reload
+#define CHROME_L22     LGUI(KC_R)               // reload
+#define CHROME_L23     LGUI(KC_LEFT)            // nav back
+#define CHROME_L24     LGUI(KC_RIGHT)           // nav foward
 #define CHROME_L25     XXXXXXX
 #define CHROME_L30     XXXXXXX
 #define CHROME_L31     XXXXXXX
 #define CHROME_L32     XXXXXXX
 #define CHROME_L33     XXXXXXX
-#define CHROME_L34     XXXXXXX
+#define CHROME_L34     LALT(LGUI(KC_I))         // shared zoom concept
 #define CHROME_L35     XXXXXXX
 
 #define CHROME_R00     KC_A
 #define CHROME_R01     KC_S
 #define CHROME_R02     KC_W
 #define CHROME_R03     KC_D
-#define CHROME_R04     LALT(LGUI(KC_I))
+#define CHROME_R04     XXXXXXX
 #define CHROME_R05     XXXXXXX
-#define CHROME_R10     LGUI(KC_F8)
-#define CHROME_R11     KC_F8
-#define CHROME_R12     LGUI(KC_QUOT)
-#define CHROME_R13     LGUI(KC_SCLN)
-#define CHROME_R14     LGUI(LSFT(KC_SCLN))
+#define CHROME_R10     LGUI(KC_F8)              // shared breakpoints (this one is toggle)
+#define CHROME_R11     KC_F8                    // shared debug play
+#define CHROME_R12     LGUI(KC_QUOT)            // shared debug over
+#define CHROME_R13     LGUI(KC_SCLN)            // shared debug in
+#define CHROME_R14     LGUI(LSFT(KC_SCLN))      // shared debug out
 #define CHROME_R15     XXXXXXX
 #define CHROME_R20     LCTL(LSFT(KC_TAB))
 #define CHROME_R21     KC_PGDOWN
@@ -957,6 +1001,7 @@ enum custom_keycodes {
 
 
 /* INAV 
+ * IntelliJ: Navigation
  * Left side: Global Searching
  * Right side: Analysis, File based Searching
  * ,-----------------------------------------------------------------------------------.
@@ -976,7 +1021,7 @@ enum custom_keycodes {
 #define INAV_L04     LGUI(LSFT(KC_N))
 #define INAV_L05     LSFT(KC_F11)
 #define INAV_L10     _______
-#define INAV_L11     LGUI(LSFT(KC_A))
+#define INAV_L11     LGUI(LSFT(KC_A))         // sharez run command
 #define INAV_L12     LGUI(LSFT(KC_BSPC))
 #define INAV_L13     LGUI(KC_E)
 #define INAV_L14     LSFT(LGUI(KC_T))
@@ -1070,10 +1115,10 @@ enum custom_keycodes {
 #define IDEA_R14     LSFT(KC_F7)
 #define IDEA_R15     _______
 #define IDEA_R20     LGUI(KC_F8)
-#define IDEA_R21     LALT(KC_F8)
-#define IDEA_R22     LSFT(LGUI(KC_F9))
-#define IDEA_R23     LGUI(KC_F9)
-#define IDEA_R24     LCTL(LALT(KC_H))
+#define IDEA_R21     LALT(KC_F8)                  // shared debug play
+#define IDEA_R22     LSFT(LGUI(KC_F9))            // shared debug over
+#define IDEA_R23     LGUI(KC_F9)                  // shared debug in
+#define IDEA_R24     LCTL(LALT(KC_H))             // shared debug out
 #define IDEA_R25     _______
 #define IDEA_R30     LSFT(KC_F9)
 #define IDEA_R31     LCTL(LSFT(KC_F9))

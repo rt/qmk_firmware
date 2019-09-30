@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   QWER_L20, QWER_L21, QWER_L22, QWER_L23, QWER_L24, QWER_L25, KC_FN1,
   _______, QWER_L30, QWER_L31, QWER_L32, QWER_L33, 
 
-                                                  KC_MPLY,  TG(_MOUSE),
+                                                  KC_MPLY,  _______,
                                                             KC_LALT,
                                       QWER_L34,  QWER_L35,    KC_LGUI,
 
@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_FN1,      QWER_R20, QWER_R21, QWER_R22, QWER_R23, QWER_R24, QWER_R25,
                QWER_R32, QWER_R33, QWER_R34, QWER_R35, _______,
 
-  TT(_NUM), TG(_MOUSE),
+  TT(_NUM), _______,
   KC_LALT,
   KC_LGUI,  QWER_R30,      QWER_R31
 ),
@@ -58,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   COLE_L20, COLE_L21, COLE_L22, COLE_L23, COLE_L24, COLE_L25, KC_FN1,
   _______, COLE_L30, COLE_L31, COLE_L32, COLE_L33, 
 
-                                                  KC_MPLY,  TG(_MOUSE),
+                                                  KC_MPLY,  _______,
                                                             KC_LALT,
                                       COLE_L34,  COLE_L35,    KC_LGUI,
 
@@ -69,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_FN1,      COLE_R20, COLE_R21, COLE_R22, COLE_R23, COLE_R24, COLE_R25,
                COLE_R32, COLE_R33, COLE_R34, COLE_R35, _______,
 
-  TT(_NUM), TG(_MOUSE),
+  TT(_NUM), _______,
   KC_LALT,
   KC_LGUI,  COLE_R30,      COLE_R31
 ),
@@ -333,74 +333,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, IDEA_R30,  IDEA_R31
 ),
 
-
-/* Keymap 2: Media and mouse keys
- *
- * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
- * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |      | Lclk | MsUp | Rclk |Wh Up |      |           |      |      |      |      |      |      |        |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |MsLeft|MsDown|MsRght|Wh Dn |------|           |------|      |      |      |      |      |  Play  |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |      |      |      |      |      |           |      |      |      | Prev | Next |      |        |
- * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |      |      |      |      |                                       |VolUp |VolDn | Mute |      |      |
- *   `----------------------------------'                                       `----------------------------------'
- *                                      ,-------------.           ,-------------.
- *                                      |      |      |           |      |      |
- *                               ,------|------|------|           |------+------+------.
- *                               |      |      |      |           |      |Brwser|Brwser|
- *                               | Lclk | Rclk |------|           |------|Back  |Fwd   |
- *                               |      |      |      |           |      |      |      |
- *                               `--------------------'           `--------------------'
- */
-// MOUSE
-[_MOUSE] = LAYOUT_ergodox(
-  // left hand
-  _______, _______, _______, _______, _______, _______, _______,
-  _______, _______, KC_BTN2, KC_MS_U, KC_BTN1, KC_WH_D, _______,
-  _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_U,
-  _______, _______, KC_WH_L, KC_BTN3, KC_WH_R, _______, _______,
-  _______, _______, _______, _______, _______,
-
-                                       _______, _______,
-                                                KC_WH_D,
-                              KC_BTN1, KC_BTN2, KC_WH_U,
-
-  // right hand
-  _______,   _______, _______, _______, _______, _______, _______,
-  _______,   _______, _______, _______, _______, _______, _______,
-             _______, _______, _______, _______, _______, KC_MPLY,
-  _______, _______, _______, KC_MPRV, KC_MNXT, _______, _______,
-                      KC_VOLU, KC_VOLD, KC_MUTE, _______, _______,
-
-  _______, _______,
-  _______,
-  _______, KC_WBAK, KC_WFWD
-),
-
-/* Keymap 2: NUMPAD
- *
- * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |        |   ✗  |   ✗  |   ✗  |   ✗  |   ✗  |   ✗  |           |   ✗  |   ✗  |   ✗  |   /  |   *  |   -  |        |
- * |--------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
- * |        |   ✗  | Home |  Up  |  End | PgUp |      |           |      |   ✗  |   7  |   8  |   9  |   +  |        |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |   ✗  | Left | Down | Right| PgDn |------|           |------|   ✗  |   4  |   5  |   6  |   +  |    ✗   |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |   /  |   *  |   -  |   +  | Enter|      |           |      |   ✗  |   1  |   2  |   3  | Enter|  Enter |
- * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |      |      |      |   ✗  |                                       |   0  |   0  |   .  | Enter|   =  |
- *   `----------------------------------'                                       `----------------------------------'
- *                                      ,-------------.           ,-------------.
- *                                      |      |      |           |      |      |
- *                               ,------|------|------|           |------+------+------.
- *                               |      |      |      |           |      |      |      |
- *                               |      |      |------|           |------|      |      |
- *                               |      |      |      |           |      |      |      |
- *                               `--------------------'           `--------------------'
- */
 [_NUM] = LAYOUT_ergodox(
   // left hand
   _______,    _______, _______, _______, _______, _______, _______,
@@ -470,33 +402,3 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 };
 
 
-/**
- * Runs just one time when the keyboard initializes.
- */
-void matrix_init_user(void) {
-
-};
-
-/**
- * Runs constantly in the background, in a loop.
- */
-void matrix_scan_user(void) {
-  /*uint8_t layer = biton32(layer_state);*/
-
-  /*ergodox_board_led_off();*/
-  /*ergodox_led_lower_off();*/
-  /*ergodox_led_raise_off();*/
-  /*ergodox_led_adjust_off();*/
-
-  /*switch (layer) {*/
-    /*case _LOWER:*/
-      /*ergodox_led_lower_on();*/
-      /*break;*/
-    /*case _RAISE:*/
-      /*ergodox_led_raise_on();*/
-      /*break;*/
-    /*case _ADJUST:*/
-      /*ergodox_led_adjust_on();*/
-      /*break;*/
-  /*}*/
-};
