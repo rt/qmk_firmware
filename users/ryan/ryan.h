@@ -301,7 +301,7 @@ enum custom_keycodes {
  * ,-----------------------------------------------------------------------------------.
  * |      |Sft/Q |_VWN/W|   F  |_IDN/P|_VHN/B|_VHN/J|_IDN/L|   U  |_VWK/Y|Sft/; |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |Alt/A |   R  |_NAV/S|Ctl/T |_CHR/G|_CHR/M|Ctl/N |_NAV/E|   I  |Alt/O |      |
+ * |      |  A   |   R  |_NAV/S|Ctl/T |_CHR/G|_CHR/M|Ctl/N |_NAV/E|   I  |  O   |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |Gui/Z |   X  |   C  |_IDE/D|_VHM/V|_VHM/K|_IDE/H|   ,  |   .  |Gui/' |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -315,14 +315,14 @@ enum custom_keycodes {
 #define COLE_L04     LT(_INAV,KC_P)
 #define COLE_L05     LT(_VHNAV,KC_B)
 #define COLE_L10     XXXXXXX
-#define COLE_L11     MT(MOD_LALT,KC_A)
+#define COLE_L11     KC_A
 #define COLE_L12     KC_R
 #define COLE_L13     LT(_NAV,KC_S)
 #define COLE_L14     MT(MOD_LCTL,KC_T)
 #define COLE_L15     LT(_CHROME,KC_G)
 #define COLE_L20     XXXXXXX
 #define COLE_L21     MT(MOD_LGUI,KC_Z)
-#define COLE_L22     KC_X
+#define COLE_L22     MT(MOD_LALT,KC_X)
 #define COLE_L23     KC_C
 #define COLE_L24     LT(_IDEA,KC_D)
 #define COLE_L25     LT(_VHOME,KC_V)
@@ -343,12 +343,12 @@ enum custom_keycodes {
 #define COLE_R11     MT(MOD_RCTL,KC_N)
 #define COLE_R12     LT(_NAV,KC_E)
 #define COLE_R13     KC_I
-#define COLE_R14     MT(MOD_RALT,KC_O)
+#define COLE_R14     KC_O
 #define COLE_R15     XXXXXXX 
 #define COLE_R20     LT(_VHOME,KC_K)
 #define COLE_R21     LT(_IDEA,KC_H)
 #define COLE_R22     KC_COMM
-#define COLE_R23     LT(_VWORK,KC_DOT)
+#define COLE_R23     MT(MOD_RGUI,KC_DOT)
 #define COLE_R24     MT(MOD_RGUI,KC_QUOT)
 #define COLE_R25     XXXXXXX
 #define COLE_R30     LT(_RAISE,KC_SPC)
@@ -939,9 +939,9 @@ enum custom_keycodes {
 /* CHROME 
  * Chrome: editor, navigation both browser and devtools
  * ,-----------------------------------------------------------------------------------.
- * |      |      |Search|      |FindFi|Bkmrks|  A   |  S   |  W   |  D   |      |      |
+ * |      |      |Search|      |FindFi|Bkmrks|Incog |NewTab|      |      |DelTab|      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |RunCmd|      |PrvPan|NxtPan|      |BRKPTS|PLYPAU|STPOVR|STPIN |STPOUT|      |
+ * |      |RunCmd|LstTab|PrvPan|NxtPan|      |BRKPTS|PLYPAU|STPOVR|STPIN |STPOUT|      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |HrdRld| Rld  | Back | Fwd  |      | TabP |PgDown| PgUp | TabN | Eval |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -956,7 +956,7 @@ enum custom_keycodes {
 #define CHROME_L05     LALT(LGUI(KC_B))         // shares bookmarks
 #define CHROME_L10     XXXXXXX
 #define CHROME_L11     LGUI(LSFT(KC_P))         // shared run command
-#define CHROME_L12     XXXXXXX
+#define CHROME_L12     LGUI(LSFT(KC_T))         // shared recents (actually last closed tab in this case)
 #define CHROME_L13     LGUI(KC_LBRACKET)        // devtools prev pane
 #define CHROME_L14     LGUI(KC_RBRACKET)        // devtools next pane
 #define CHROME_L15     XXXXXXX
@@ -973,11 +973,16 @@ enum custom_keycodes {
 #define CHROME_L34     LALT(LGUI(KC_I))         // shared zoom concept
 #define CHROME_L35     XXXXXXX
 
-#define CHROME_R00     KC_A
-#define CHROME_R01     KC_S
-#define CHROME_R02     KC_W
-#define CHROME_R03     KC_D
-#define CHROME_R04     XXXXXXX
+// This was for profiling ... could make a devtools layer
+// #define CHROME_R00     KC_A
+// #define CHROME_R01     KC_S
+// #define CHROME_R02     KC_W
+// #define CHROME_R03     KC_D
+#define CHROME_R00     LGUI(LSFT(KC_N))
+#define CHROME_R01     LGUI(KC_T)
+#define CHROME_R02     XXXXXXX
+#define CHROME_R03     XXXXXXX
+#define CHROME_R04     LGUI(KC_W)
 #define CHROME_R05     XXXXXXX
 #define CHROME_R10     LGUI(KC_F8)              // shared breakpoints (this one is toggle)
 #define CHROME_R11     KC_F8                    // shared debug play
