@@ -40,6 +40,16 @@ https://github.com/qmk/qmk_toolbox/releases
 
 ## My Keyboards
 
+### Dactyl Manuform
+
+### Minidox
+
+### ErgoTravel
+
+### crkbrd
+
+### Ryan Switch Tester (keyboards/handwired/ryan_switch_tester/
+
 ### Levinson
 
 ### Ergodox-ez
