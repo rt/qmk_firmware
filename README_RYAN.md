@@ -50,6 +50,8 @@ https://github.com/qmk/qmk_toolbox/releases
 
 ### Ryan Switch Tester (keyboards/handwired/ryan_switch_tester/
 
+### Mr Kabuda (keyboards/handwired/mrkabuda/
+
 ### Levinson
 
 ### Ergodox-ez

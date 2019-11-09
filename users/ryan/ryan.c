@@ -243,21 +243,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING("=od");
       }
         break;
-    case VIM_REG_A:
-      if (record->event.pressed) {
-        SEND_STRING("\"ay");
-      }
-        break;
-    case VIM_REG_A_PASTE:
-      if (record->event.pressed) {
-        SEND_STRING("\"ap");
-      }
-        break;
-    case VIM_REG_A_APPEND:
-      if (record->event.pressed) {
-        SEND_STRING("\"Ay");
-      }
-        break;
     case VIM_BUFFER_PREV:
       if (record->event.pressed) {
         SEND_STRING(":BufSurfBack"SS_TAP(X_ENTER));
@@ -280,12 +265,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
     case VIM_TAGS:
       if (record->event.pressed) {
-        SEND_STRING(":Tags");
+        SEND_STRING(":Tags"SS_TAP(X_ENTER));
       }
         break;
-    case VIM_TAGBAR_TOGGLE:
+    case VIM_TAGBAR_OPEN_AUTOCLOSE:
       if (record->event.pressed) {
-        SEND_STRING(",b");
+        SEND_STRING(":TagbarOpenAutoClose"SS_TAP(X_ENTER));
       }
         break;
     case VIM_FIND_INPATH:
@@ -296,6 +281,38 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VIM_FIND_FILE:
       if (record->event.pressed) {
         SEND_STRING(",t");
+      }
+        break;
+    case VIM_FIND_WORD_IN_DIR:
+      if (record->event.pressed) {
+        // preview dir in main pane
+        SEND_STRING("go");
+        // move to main pane
+        SEND_STRING(SS_LCTRL("i"));
+        // move down 3 lines to get to dir in main pain
+        SEND_STRING(SS_TAP(X_DOWN));
+        SEND_STRING(SS_TAP(X_DOWN));
+        SEND_STRING(SS_TAP(X_DOWN));
+        // change to selected dir
+        SEND_STRING("cd");
+        // search files
+        SEND_STRING(",k");
+      }
+        break;
+    case VIM_FIND_FILE_IN_DIR:
+      if (record->event.pressed) {
+        // preview dir in main pane
+        SEND_STRING("go");
+        // move to main pane
+        SEND_STRING(SS_LCTRL("i"));
+        // move down 3 lines to get to dir in main pain
+        SEND_STRING(SS_TAP(X_DOWN));
+        SEND_STRING(SS_TAP(X_DOWN));
+        SEND_STRING(SS_TAP(X_DOWN));
+        // change to selected dir
+        SEND_STRING("cd");
+        // search files
+        SEND_STRING(",f");
       }
         break;
     case VIM_MARKS:
@@ -321,11 +338,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VIM_FILE_INPROJ:
       if (record->event.pressed) {
         SEND_STRING(",n");
-      }
-        break;
-    case VIM_DBL_TICK:
-      if (record->event.pressed) {
-        SEND_STRING("``");
       }
         break;
     case VIM_DISPATCH_NPM:

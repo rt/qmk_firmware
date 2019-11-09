@@ -75,7 +75,6 @@ enum custom_keycodes {
   TMUX_WIN_NEXT,
   TMUX_SCROLL,
   TMUX_ZOOM_TOGGLE,
-	VIM_DBL_TICK,
   VIM_PASTE_LAST_YANK,
   VIM_DIFF_TOGGLE,
   VIM_PICK_AXE,
@@ -89,9 +88,6 @@ enum custom_keycodes {
   VIM_EDIT_INDEX_TOGGLE,
   VIM_GIT_STATUS,
   VIM_GIT_BLAME,
-	VIM_REG_A,
-	VIM_REG_A_PASTE,
-	VIM_REG_A_APPEND,
 	VIM_ARGS_FIRST,
 	VIM_ARGS_NEXT,
 	VIM_ARGS_PREV,
@@ -101,9 +97,11 @@ enum custom_keycodes {
   VIM_CTAGS_DECL,
   VIM_CTAGS_SEL,
   VIM_TAGS,
-  VIM_TAGBAR_TOGGLE,
+  VIM_TAGBAR_OPEN_AUTOCLOSE,
   VIM_FIND_INPATH,
   VIM_FIND_FILE,
+  VIM_FIND_FILE_IN_DIR,
+  VIM_FIND_WORD_IN_DIR,
   VIM_MARKS,
   VIM_RECENT_CHANGES,
   VIM_FILES_RECENT,
@@ -619,7 +617,7 @@ enum custom_keycodes {
 /* NAV 
  * Global: System, Tmux, App, etc, Navigation
  * ,-----------------------------------------------------------------------------------.
- * |      |VQUIT |VWRITE|VPRVFI|VPREVP|PrevAp|TWINP |TPANEN|      |TWINN |      |      |
+ * |      |VQUIT |VWRITE|VPRVFI|      |PrevAp|TWINP |TPANEN|      |TWINN |      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |Zm0   |ZmOut |TSCRLL| PgUp | Home | Left | Down |  Up  |Right |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -632,7 +630,7 @@ enum custom_keycodes {
 #define NAV_L01     VIM_QUIT
 #define NAV_L02     VIM_WRITE
 #define NAV_L03     LCTL(KC_CIRC)
-#define NAV_L04     VIM_DBL_TICK
+#define NAV_L04     _______
 #define NAV_L05     LGUI(KC_TAB)
 #define NAV_L10     _______
 #define NAV_L11     LGUI(KC_0)
@@ -687,7 +685,7 @@ enum custom_keycodes {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |      |      |COMNT |FORMAT|      |      |      |EX_ABV|EX_BLW|      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |AREG  |APPNDA|REGP  | SNIP | DIFF |      |      |      |      |DP_NPM|      |
+ * |      |      |      |      | SNIP | DIFF |      |      |      |      |DP_NPM|      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |ComplX|Compl |SP_ABV|SP_BLW|      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -696,32 +694,32 @@ enum custom_keycodes {
 #define VHOME_L01     _______
 #define VHOME_L02     _______
 #define VHOME_L03     _______
-#define VHOME_L04     VIM_PASTE_LAST_YANK
+#define VHOME_L04     VIM_PASTE_LAST_YANK           // Paste last yank (instead of last selection)
 #define VHOME_L05     _______
 #define VHOME_L10     _______
 #define VHOME_L11     _______
 #define VHOME_L12     _______
-#define VHOME_L13     VIM_COMMENT
-#define VHOME_L14     KC_EQL
+#define VHOME_L13     VIM_COMMENT                   // shared Comment selected
+#define VHOME_L14     KC_EQL                        // shared Format selected
 #define VHOME_L15     _______
 #define VHOME_L20     _______
-#define VHOME_L21     VIM_REG_A
-#define VHOME_L22     VIM_REG_A_APPEND
-#define VHOME_L23     VIM_REG_A_PASTE
-#define VHOME_L24     VIM_SNIPPETS
+#define VHOME_L21     _______
+#define VHOME_L22     _______
+#define VHOME_L23     _______
+#define VHOME_L24     VIM_SNIPPETS                  // shared snipplets
 #define VHOME_L25     VIM_DIFF_TOGGLE
 #define VHOME_L30     _______
 #define VHOME_L31     _______
 #define VHOME_L32     _______
 #define VHOME_L33     _______
-#define VHOME_L34     LCTL(KC_X)
-#define VHOME_L35     LCTL(KC_T)
+#define VHOME_L34     LCTL(KC_X)                    // shared Advanced completion (Ctl-L, query db, ets.)
+#define VHOME_L35     LCTL(KC_N)                    // shared word complete
 
 #define VHOME_R00     _______
-#define VHOME_R01     VIM_NERD_NEW
-#define VHOME_R02     VIM_NERD_COPY
-#define VHOME_R03     VIM_NERD_MOVE
-#define VHOME_R04     VIM_NERD_DEL
+#define VHOME_R01     VIM_NERD_NEW                  // shared
+#define VHOME_R02     VIM_NERD_COPY                 // shared
+#define VHOME_R03     VIM_NERD_MOVE                 // shared
+#define VHOME_R04     VIM_NERD_DEL                  // shared
 #define VHOME_R05     _______
 #define VHOME_R10     _______
 #define VHOME_R11     _______
@@ -747,9 +745,9 @@ enum custom_keycodes {
 /* VHNAV 
  * Vim: Navigation
  * ,-----------------------------------------------------------------------------------.
- * |      | IMPL | FINDP|      |FINDFI| MARKS|      | FNP  | TAGB | TAGS |USAGEF|      |
+ * |      |FWiDir| FINDP|FFiDir|FINDFI| MARKS|TAGSEL| FNP  | TAGB | TAGS |USAGEF|      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |IMPLW |RECCHG| REC  | TEST |      | B-P  | DECL |TAGSEL| B-N  |USAGEW|      |
+ * |      |      |RECCHG| REC  | TEST |      | B-P  | DECL |TAGSEL| B-N  |USAGEW|      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      |      |      | PROJV| Gundo|STYLE | DIGC |BACKC | TEMP |USAGCF|      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -757,49 +755,49 @@ enum custom_keycodes {
  * `-----------------------------------------------------------------------------------'
  */
 #define VHNAV_L00     _______
-#define VHNAV_L01     VIM_GET_IMPL
-#define VHNAV_L02     VIM_FIND_INPATH
-#define VHNAV_L03     _______
-#define VHNAV_L04     VIM_FIND_FILE
-#define VHNAV_L05     VIM_MARKS
+#define VHNAV_L01     VIM_FIND_WORD_IN_DIR        // Find word in dir in nerdtree
+#define VHNAV_L02     VIM_FIND_INPATH             // shared Find <keyword> in current directory
+#define VHNAV_L03     VIM_FIND_FILE_IN_DIR        // Find file in dir in nerdtree
+#define VHNAV_L04     VIM_FIND_FILE               // shared Find file in git 
+#define VHNAV_L05     VIM_MARKS                   // shared
 #define VHNAV_L10     _______
-#define VHNAV_L11     VIM_GET_IMPL_CURSOR_WORD
-#define VHNAV_L12     VIM_RECENT_CHANGES
-#define VHNAV_L13     VIM_FILES_RECENT
-#define VHNAV_L14     VIM_GOTO_TEST
+#define VHNAV_L11     _______
+#define VHNAV_L12     VIM_RECENT_CHANGES          // shared
+#define VHNAV_L13     VIM_FILES_RECENT            // shared
+#define VHNAV_L14     VIM_GOTO_TEST               // shared
 #define VHNAV_L15     _______
 #define VHNAV_L20     _______
 #define VHNAV_L21     _______
 #define VHNAV_L22     _______
 #define VHNAV_L23     _______
-#define VHNAV_L24     VIM_VIEW_PROJ
-#define VHNAV_L25     VIM_GUNDO
+#define VHNAV_L24     VIM_VIEW_PROJ               // shared
+#define VHNAV_L25     VIM_GUNDO                   // shared local changes (only)
 #define VHNAV_L30     _______
 #define VHNAV_L31     _______
 #define VHNAV_L32     _______
 #define VHNAV_L33     _______
-#define VHNAV_L34     VIM_ONLY
+#define VHNAV_L34     VIM_ONLY                    // shared
 #define VHNAV_L35     _______
 
-#define VHNAV_R00     _______
-#define VHNAV_R01     VIM_FILE_INPROJ
-#define VHNAV_R02     VIM_TAGBAR_TOGGLE
-#define VHNAV_R03     VIM_TAGS
-#define VHNAV_R04     VIM_USAGES_CFILE
+#define VHNAV_R00     VIM_CTAGS_SEL               // shared Pick selection when multiple options
+#define VHNAV_R01     VIM_FILE_INPROJ             // shared
+#define VHNAV_R02     VIM_TAGBAR_OPEN_AUTOCLOSE   // shared
+#define VHNAV_R03     VIM_TAGS                    // shared
+#define VHNAV_R04     VIM_USAGES_CFILE            // Search for cfile in current scope
 #define VHNAV_R05     _______
-#define VHNAV_R10     VIM_BUFFER_PREV
-#define VHNAV_R11     VIM_CTAGS_DECL
-#define VHNAV_R12     VIM_CTAGS_SEL
-#define VHNAV_R13     VIM_BUFFER_NEXT
-#define VHNAV_R14     VIM_USAGES_CWORD
+#define VHNAV_R10     VIM_BUFFER_PREV             // shared Prev buffer
+#define VHNAV_R11     VIM_CTAGS_DECL              // shared Go to declaration
+#define VHNAV_R12     VIM_GET_IMPL                // shared Find files named like current file (java)
+#define VHNAV_R13     VIM_BUFFER_NEXT             // shared Next buffer
+#define VHNAV_R14     VIM_USAGES_CWORD            // shared Search for cword in current scope
 #define VHNAV_R15     _______
 #define VHNAV_R20     VIM_GET_STYLE_FILE
 #define VHNAV_R21     VIM_WORK_GOTO_COMPONENT
 #define VHNAV_R22     VIM_WORK_GET_BACKING_FILE
 #define VHNAV_R23     VIM_WORK_GET_TEMPLATE
-#define VHNAV_R24     VIM_GET_USAGES_BY_CURRENT_FILE
+#define VHNAV_R24     VIM_GET_USAGES_BY_CURRENT_FILE // Advanced file seach based on current file, but it adjusts depending on the extention.
 #define VHNAV_R25     _______
-#define VHNAV_R30     _______
+#define VHNAV_R30     VIM_GET_IMPL_CURSOR_WORD    // Find files named like cword
 #define VHNAV_R31     _______
 #define VHNAV_R32     _______
 #define VHNAV_R33     _______
@@ -1014,7 +1012,7 @@ enum custom_keycodes {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |FindAc|RChngs|Recent|GotoTe|LastTo| Back | Decl | Impl | Fwd  |Usages|      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |StrctV|DebugV|ProjV | GitV |ToolL |ToolD |ToolU |ToolR |TMnMx |      |
+ * |      |      |StrctV|DebugV|ProjV | GitV |      |NxtErr|PrvErr|      |TMnMx |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |CloseT|MaxMin| Term |SupMC |ParamI|      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -1026,7 +1024,7 @@ enum custom_keycodes {
 #define INAV_L04     LGUI(LSFT(KC_N))
 #define INAV_L05     LSFT(KC_F11)
 #define INAV_L10     _______
-#define INAV_L11     LGUI(LSFT(KC_A))         // sharez run command
+#define INAV_L11     LGUI(LSFT(KC_A))         // shared run command
 #define INAV_L12     LGUI(LSFT(KC_BSPC))
 #define INAV_L13     LGUI(KC_E)
 #define INAV_L14     LSFT(LGUI(KC_T))
@@ -1090,22 +1088,22 @@ enum custom_keycodes {
 #define IDEA_L05     LGUI(LALT(KC_V))
 #define IDEA_L10     _______
 #define IDEA_L11     LGUI(KC_W)
-#define IDEA_L12     LALT(LGUI(KC_T))
-#define IDEA_L13     LGUI(KC_SLSH)
+#define IDEA_L12     LALT(LGUI(KC_T))               // shared Comment selected
+#define IDEA_L13     LGUI(KC_SLSH)                  // shared Format selected 
 #define IDEA_L14     LALT(LGUI(KC_L))
 #define IDEA_L15     LALT(KC_ENTER)
 #define IDEA_L20     _______
 #define IDEA_L21     LCTL(KC_O)
 #define IDEA_L22     LCTL(KC_I)
 #define IDEA_L23     LCTL(KC_ENTER)
-#define IDEA_L24     LGUI(KC_J)
+#define IDEA_L24     LGUI(KC_J)                     // shared Live Templates
 #define IDEA_L25     _______
 #define IDEA_L30     _______
 #define IDEA_L31     _______
 #define IDEA_L32     _______
 #define IDEA_L33     _______
-#define IDEA_L34     LGUI(LSFT(KC_ENTER))
-#define IDEA_L35     LCTL(LSFT(KC_SPC))
+#define IDEA_L34     LGUI(LSFT(KC_ENTER))           // shared statement complete
+#define IDEA_L35     LCTL(LSFT(KC_SPC))             // shared code complet
 
 #define IDEA_R00     LCTL(LSFT(KC_N))
 #define IDEA_R01     LCTL(KC_N)
