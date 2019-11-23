@@ -33,10 +33,6 @@
 //
 //
 //
-//I don't know the reason why but ...
-//- ergodox needs these in the order that they appear in keyboard.c but they don't need the int assignment
-//- levinson needs the integer assignmest but they don't need to be in any order in keyboard.c, but it needs DVORAK at index 1
-//why ... I don't know ...
 enum custom_layers {
   _QWERTY=0,
   _COLE=1,
@@ -51,8 +47,8 @@ enum custom_layers {
   _INAV=10,
   _CHROME=11,
   _IDEA=12,
-  _MOUSE=13,
-  _NUM=14,
+  _SFT=13,
+  _MISC=14,
   _ADJUST=15,
 };
 
@@ -301,7 +297,7 @@ enum custom_keycodes {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |  A   |   R  |_NAV/S|Ctl/T |_CHR/G|_CHR/M|Ctl/N |_NAV/E|   I  |  O   |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |Gui/Z |   X  |   C  |_IDE/D|_VHM/V|_VHM/K|_IDE/H|   ,  |   .  |Gui/' |      |
+ * |      |Gui/Z |Alt/X |MISC/C|_IDE/D|_VHM/V|_VHM/K|_IDE/H|MISC/,|Alt/. |Gui/' |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      | _ADJ | _LOW |_G/Ent|_R/Spc| _SFT | _ADJ |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -321,7 +317,7 @@ enum custom_keycodes {
 #define COLE_L20     XXXXXXX
 #define COLE_L21     MT(MOD_LGUI,KC_Z)
 #define COLE_L22     MT(MOD_LALT,KC_X)
-#define COLE_L23     KC_C
+#define COLE_L23     LT(_MISC,KC_C)
 #define COLE_L24     LT(_IDEA,KC_D)
 #define COLE_L25     LT(_VHOME,KC_V)
 #define COLE_L30     XXXXXXX
@@ -345,12 +341,12 @@ enum custom_keycodes {
 #define COLE_R15     XXXXXXX 
 #define COLE_R20     LT(_VHOME,KC_K)
 #define COLE_R21     LT(_IDEA,KC_H)
-#define COLE_R22     KC_COMM
-#define COLE_R23     MT(MOD_RGUI,KC_DOT)
+#define COLE_R22     LT(_MISC,KC_COMM)
+#define COLE_R23     MT(MOD_RALT,KC_DOT)
 #define COLE_R24     MT(MOD_RGUI,KC_QUOT)
 #define COLE_R25     XXXXXXX
 #define COLE_R30     LT(_RAISE,KC_SPC)
-#define COLE_R31     OSL(_NUM)
+#define COLE_R31     OSL(_SFT)
 #define COLE_R32     OSL(_ADJUST)
 #define COLE_R33     XXXXXXX
 #define COLE_R34     XXXXXXX
@@ -391,7 +387,7 @@ enum custom_keycodes {
 #define SFT_L30     XXXXXXX
 #define SFT_L31     XXXXXXX
 #define SFT_L32     XXXXXXX
-#define SFT_L33     XXXXXXX
+#define SFT_L33     _______
 #define SFT_L34     XXXXXXX
 #define SFT_L35     KC_CAPSLOCK
 
@@ -455,7 +451,7 @@ enum custom_keycodes {
 #define LOW_L30     XXXXXXX
 #define LOW_L31     XXXXXXX
 #define LOW_L32     XXXXXXX
-#define LOW_L33     XXXXXXX
+#define LOW_L33     _______
 #define LOW_L34     KC_ESC
 #define LOW_L35     XXXXXXX
 
@@ -491,7 +487,7 @@ enum custom_keycodes {
  * ,-----------------------------------------------------------------------------------.
  * |      |Alias |WRKFLW|      |      |      |      |      |      |  F11 |  F12 |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |CDDEPL|CDDATA|CDSERV|CDCLNT|CDDTLS|      |CDROOT|      |      |      |      |
+ * |      |CDDEPL|CDDATA|CDSERV|CDCLNT|CDDTLS|      |      |      |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  |  F10 |      | 
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -519,7 +515,7 @@ enum custom_keycodes {
 #define RAIS_L30     XXXXXXX
 #define RAIS_L31     XXXXXXX
 #define RAIS_L32     XXXXXXX
-#define RAIS_L33     XXXXXXX
+#define RAIS_L33     _______
 #define RAIS_L34     KC_TAB
 #define RAIS_L35     LGUI(KC_BSPC)
 
@@ -530,7 +526,7 @@ enum custom_keycodes {
 #define RAIS_R04     KC_F12
 #define RAIS_R05     XXXXXXX
 #define RAIS_R10     XXXXXXX
-#define RAIS_R11     VIM_WORK_DIR_ROOT
+#define RAIS_R11     XXXXXXX
 #define RAIS_R12     XXXXXXX
 #define RAIS_R13     XXXXXXX
 #define RAIS_R14     XXXXXXX
@@ -583,7 +579,7 @@ enum custom_keycodes {
 #define ADJ_L30     XXXXXXX
 #define ADJ_L31     XXXXXXX
 #define ADJ_L32     XXXXXXX
-#define ADJ_L33     XXXXXXX
+#define ADJ_L33     _______
 #define ADJ_L34     XXXXXXX
 #define ADJ_L35     XXXXXXX
 
@@ -621,7 +617,7 @@ enum custom_keycodes {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |Zm0   |ZmOut |TSCRLL| PgUp | Home | Left | Down |  Up  |Right |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |FlScrn|ZmIn  |AppWin|PgDown| End  |WkspL |      |      |WkspR |      |      |
+ * |      |FlScrn|ZmIn  |AppWin|PgDown| End  |WkspL |WordL |WordR |WkspR |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |TZMTOG|Enter | Bspc |AltBk | Del  |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -664,8 +660,8 @@ enum custom_keycodes {
 #define NAV_R14     _______
 #define NAV_R15     _______
 #define NAV_R20     LCTL(KC_LEFT)
-#define NAV_R21     _______
-#define NAV_R22     _______
+#define NAV_R21     LALT(KC_LEFT)
+#define NAV_R22     LALT(KC_RIGHT)
 #define NAV_R23     LCTL(KC_RIGHT)
 #define NAV_R24     _______
 #define NAV_R25     _______
@@ -1123,12 +1119,75 @@ enum custom_keycodes {
 #define IDEA_R23     LGUI(KC_F9)                  // shared debug in
 #define IDEA_R24     LCTL(LALT(KC_H))             // shared debug out
 #define IDEA_R25     _______
-#define IDEA_R30     LSFT(KC_F9)
+#define IDEA_R30     LSFT(LGUI(KC_F9))            // compile current file
 #define IDEA_R31     LCTL(LSFT(KC_F9))
 #define IDEA_R32     LCTL(LSFT(KC_F10))
 #define IDEA_R33     _______
 #define IDEA_R34     _______
 #define IDEA_R35     _______
+
+
+
+/* Misc 
+ * ,-----------------------------------------------------------------------------------.
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+#define MISC_L00     _______
+#define MISC_L01     _______
+#define MISC_L02     _______
+#define MISC_L03     _______
+#define MISC_L04     _______
+#define MISC_L05     _______
+#define MISC_L10     _______
+#define MISC_L11     _______
+#define MISC_L12     _______
+#define MISC_L13     _______
+#define MISC_L14     _______
+#define MISC_L15     _______
+#define MISC_L20     _______
+#define MISC_L21     _______
+#define MISC_L22     _______
+#define MISC_L23     _______
+#define MISC_L24     _______
+#define MISC_L25     _______
+#define MISC_L30     _______
+#define MISC_L31     _______
+#define MISC_L32     _______
+#define MISC_L33     _______
+#define MISC_L34     _______
+#define MISC_L35     _______
+
+#define MISC_R00     _______
+#define MISC_R01     _______
+#define MISC_R02     _______
+#define MISC_R03     _______
+#define MISC_R04     _______
+#define MISC_R05     _______
+#define MISC_R10     _______
+#define MISC_R11     _______
+#define MISC_R12     _______
+#define MISC_R13     _______
+#define MISC_R14     _______
+#define MISC_R15     _______
+#define MISC_R20     _______
+#define MISC_R21     _______
+#define MISC_R22     _______
+#define MISC_R23     _______
+#define MISC_R24     _______
+#define MISC_R25     _______
+#define MISC_R30     _______
+#define MISC_R31     _______
+#define MISC_R32     _______
+#define MISC_R33     _______
+#define MISC_R34     _______
+#define MISC_R35     _______
 
 
 

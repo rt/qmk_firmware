@@ -59,15 +59,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,                                           \
                                       XXXXXXX,   XXXXXXX,    XXXXXXX, XXXXXXX
 ),
-[_ADJUST] =  LAYOUT( \
-  ADJ_L01, ADJ_L02, ADJ_L03, ADJ_L04, ADJ_L05, ADJ_R00, ADJ_R01, ADJ_R02, ADJ_R03, ADJ_R04,  \
-  ADJ_L11, ADJ_L12, ADJ_L13, ADJ_L14, ADJ_L15, ADJ_R10, ADJ_R11, ADJ_R12, ADJ_R13, ADJ_R14,  \
-  ADJ_L21, ADJ_L22, ADJ_L23, ADJ_L24, ADJ_L25, ADJ_R20, ADJ_R21, ADJ_R22, ADJ_R23, ADJ_R24,  \
-              XXXXXXX, ADJ_L34,                                                   ADJ_R31, XXXXXXX,    \
-                                      ADJ_L35, ADJ_L33,  ADJ_R32, ADJ_R30,                                          \
-                                      XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,                                           \
-                                      XXXXXXX,   XXXXXXX,    XXXXXXX, XXXXXXX
-),
 [_NAV] =  LAYOUT( \
   NAV_L01, NAV_L02, NAV_L03, NAV_L04, NAV_L05, NAV_R00, NAV_R01, NAV_R02, NAV_R03, NAV_R04,  \
   NAV_L11, NAV_L12, NAV_L13, NAV_L14, NAV_L15, NAV_R10, NAV_R11, NAV_R12, NAV_R13, NAV_R14,  \
@@ -83,15 +74,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   GIT_L21, GIT_L22, GIT_L23, GIT_L24, GIT_L25, GIT_R20, GIT_R21, GIT_R22, GIT_R23, GIT_R24,  \
               XXXXXXX, GIT_L34,                                                   GIT_R31, XXXXXXX,    \
                                       GIT_L35, GIT_L33,  GIT_R32, GIT_R30,                                          \
-                                      XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,                                           \
-                                      XXXXXXX,   XXXXXXX,    XXXXXXX, XXXXXXX
-),
-[_NUM] =  LAYOUT( \
-  SFT_L01, SFT_L02, SFT_L03, SFT_L04, SFT_L05, SFT_R00, SFT_R01, SFT_R02, SFT_R03, SFT_R04,  \
-  SFT_L11, SFT_L12, SFT_L13, SFT_L14, SFT_L15, SFT_R10, SFT_R11, SFT_R12, SFT_R13, SFT_R14,  \
-  SFT_L21, SFT_L22, SFT_L23, SFT_L24, SFT_L25, SFT_R20, SFT_R21, SFT_R22, SFT_R23, SFT_R24,  \
-              XXXXXXX, SFT_L34,                                                   SFT_R31, XXXXXXX,    \
-                                      SFT_L35, SFT_L33,  SFT_R32, SFT_R30,                                          \
                                       XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,                                           \
                                       XXXXXXX,   XXXXXXX,    XXXXXXX, XXXXXXX
 ),
@@ -155,6 +137,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   IDEA_L21, IDEA_L22, IDEA_L23, IDEA_L24, IDEA_L25, IDEA_R20, IDEA_R21, IDEA_R22, IDEA_R23, IDEA_R24,  \
               XXXXXXX, IDEA_L34,                                                   IDEA_R31, XXXXXXX,    \
                                       IDEA_L35, IDEA_L33,  IDEA_R32, IDEA_R30,                                          \
+                                      XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,                                           \
+                                      XXXXXXX,   XXXXXXX,    XXXXXXX, XXXXXXX
+),
+[_SFT] =  LAYOUT( \
+  SFT_L01, SFT_L02, SFT_L03, SFT_L04, SFT_L05, SFT_R00, SFT_R01, SFT_R02, SFT_R03, SFT_R04,  \
+  SFT_L11, SFT_L12, SFT_L13, SFT_L14, SFT_L15, SFT_R10, SFT_R11, SFT_R12, SFT_R13, SFT_R14,  \
+  SFT_L21, SFT_L22, SFT_L23, SFT_L24, SFT_L25, SFT_R20, SFT_R21, SFT_R22, SFT_R23, SFT_R24,  \
+              XXXXXXX, SFT_L34,                                                   SFT_R31, XXXXXXX,    \
+                                      SFT_L35, SFT_L33,  SFT_R32, SFT_R30,                                          \
+                                      XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,                                           \
+                                      XXXXXXX,   XXXXXXX,    XXXXXXX, XXXXXXX
+),
+[_MISC] =  LAYOUT( \
+  MISC_L01, MISC_L02, MISC_L03, MISC_L04, MISC_L05, MISC_R00, MISC_R01, MISC_R02, MISC_R03, MISC_R04,  \
+  MISC_L11, MISC_L12, MISC_L13, MISC_L14, MISC_L15, MISC_R10, MISC_R11, MISC_R12, MISC_R13, MISC_R14,  \
+  MISC_L21, MISC_L22, MISC_L23, MISC_L24, MISC_L25, MISC_R20, MISC_R21, MISC_R22, MISC_R23, MISC_R24,  \
+              XXXXXXX, MISC_L34,                                                   MISC_R31, XXXXXXX,    \
+                                      MISC_L35, MISC_L33,  MISC_R32, MISC_R30,                                          \
+                                      XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,                                           \
+                                      XXXXXXX,   XXXXXXX,    XXXXXXX, XXXXXXX
+),
+[_ADJUST] =  LAYOUT( \
+  ADJ_L01, ADJ_L02, ADJ_L03, ADJ_L04, ADJ_L05, ADJ_R00, ADJ_R01, ADJ_R02, ADJ_R03, ADJ_R04,  \
+  ADJ_L11, ADJ_L12, ADJ_L13, ADJ_L14, ADJ_L15, ADJ_R10, ADJ_R11, ADJ_R12, ADJ_R13, ADJ_R14,  \
+  ADJ_L21, ADJ_L22, ADJ_L23, ADJ_L24, ADJ_L25, ADJ_R20, ADJ_R21, ADJ_R22, ADJ_R23, ADJ_R24,  \
+              XXXXXXX, ADJ_L34,                                                   ADJ_R31, XXXXXXX,    \
+                                      ADJ_L35, ADJ_L33,  ADJ_R32, ADJ_R30,                                          \
                                       XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,                                           \
                                       XXXXXXX,   XXXXXXX,    XXXXXXX, XXXXXXX
 ),

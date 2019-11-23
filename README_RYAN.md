@@ -41,16 +41,24 @@ https://github.com/qmk/qmk_toolbox/releases
 ## My Keyboards
 
 ### Dactyl Manuform
+- white board
+- 3d print (reverse thumb)
+- dactyl
 
 ### Minidox
+- acrylic plate
+- steel plate
 
 ### ErgoTravel
+This is to let people try out split boards ...
 
 ### crkbrd
+This is the travel board
 
 ### Ryan Switch Tester (keyboards/handwired/ryan_switch_tester/
 
 ### Mr Kabuda (keyboards/handwired/mrkabuda/
+All custom boards that can be done with one controller
 
 ### Levinson
 

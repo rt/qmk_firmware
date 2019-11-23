@@ -4,7 +4,6 @@
 #undef TAPPING_TOGGLE
 
 #include "../../config.h"
-//#include "ryan.h"
 
 //#undef TAPPING_TERM 
 //#define TAPPING_TERM    100

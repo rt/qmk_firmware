@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_FN1,      QWER_R20, QWER_R21, QWER_R22, QWER_R23, QWER_R24, QWER_R25,
                QWER_R32, QWER_R33, QWER_R34, QWER_R35, _______,
 
-  TT(_NUM), _______,
+  KC_LCTL, _______,
   KC_LALT,
   KC_LGUI,  QWER_R30,      QWER_R31
 ),
@@ -69,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_FN1,      COLE_R20, COLE_R21, COLE_R22, COLE_R23, COLE_R24, COLE_R25,
                COLE_R32, COLE_R33, COLE_R34, COLE_R35, _______,
 
-  TT(_NUM), _______,
+  KC_LCTL, _______,
   KC_LALT,
   KC_LGUI,  COLE_R30,      COLE_R31
 ),
@@ -333,7 +333,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, IDEA_R30,  IDEA_R31
 ),
 
-[_NUM] = LAYOUT_ergodox(
+[_SFT] = LAYOUT_ergodox(
   // left hand
   _______,    _______, _______, _______, _______, _______, _______,
   SFT_L00, SFT_L01, SFT_L02, SFT_L03, SFT_L04, SFT_L05, _______,
@@ -355,6 +355,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______,
   _______,
   _______, SFT_R30,  SFT_R31
+),
+
+[_MISC] = LAYOUT_ergodox(
+  // left hand
+  _______,    _______, _______, _______, _______, _______, _______,
+  MISC_L00, MISC_L01, MISC_L02, MISC_L03, MISC_L04, MISC_L05, _______,
+  MISC_L10, MISC_L11, MISC_L12, MISC_L13, MISC_L14, MISC_L15,
+  MISC_L20, MISC_L21, MISC_L22, MISC_L23, MISC_L24, MISC_L25, _______,
+  _______, MISC_L30, MISC_L31, MISC_L32, MISC_L33,
+
+                                                  _______, _______,
+                                                           _______,
+                                        MISC_L34, MISC_L35, _______,
+
+  // right hand
+  _______, _______, _______, _______,  _______, _______, _______,
+  _______, MISC_R00, MISC_R01, MISC_R02, MISC_R03, MISC_R04, MISC_R05,
+            MISC_R10, MISC_R11, MISC_R12, MISC_R13, MISC_R14, MISC_R15,
+  _______, MISC_R20, MISC_R21, MISC_R22, MISC_R23, MISC_R24, MISC_R25,
+                    MISC_R32, MISC_R33, MISC_R34, MISC_R35, _______,
+
+  _______, _______,
+  _______,
+  _______, MISC_R30,  MISC_R31
 ),
 
 [_ADJUST] = LAYOUT_ergodox(
