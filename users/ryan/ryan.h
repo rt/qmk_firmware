@@ -347,7 +347,7 @@ enum custom_keycodes {
 #define COLE_R25     XXXXXXX
 #define COLE_R30     LT(_RAISE,KC_SPC)
 #define COLE_R31     OSL(_SFT)
-#define COLE_R32     OSL(_ADJUST)
+#define COLE_R32     LSFT(KC_QUOT)
 #define COLE_R33     XXXXXXX
 #define COLE_R34     XXXXXXX
 #define COLE_R35     XXXXXXX
