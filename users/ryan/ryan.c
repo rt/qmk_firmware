@@ -405,49 +405,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":WorkShowScripts"SS_TAP(X_ENTER));
       }
         break;
-    case VIM_DIR_DEPLOY:
-      if (record->event.pressed) {
-        SEND_STRING(":CdDeploy"SS_TAP(X_ENTER));
-      }
-        break;
-    case VIM_DIR_DEVTOOLS:
-      if (record->event.pressed) {
-        SEND_STRING(":CdDevTools"SS_TAP(X_ENTER));
-      }
-        break;
-    case VIM_DIR_DATA:
-      if (record->event.pressed) {
-        SEND_STRING(":CdData"SS_TAP(X_ENTER));
-      }
-        break;
-    case VIM_DIR_SERVER:
-      if (record->event.pressed) {
-        SEND_STRING(":CdServer"SS_TAP(X_ENTER));
-      }
-        break;
-    case VIM_DIR_CLIENT:
-      if (record->event.pressed) {
-        SEND_STRING(":CdClient"SS_TAP(X_ENTER));
-      }
-        break;
     case VIM_WORK_DIR_ROOT:
       if (record->event.pressed) {
         SEND_STRING(":CdRoot"SS_TAP(X_ENTER));
-      }
-        break;
-    case VIM_WORK_DIR_AUTO:
-      if (record->event.pressed) {
-        SEND_STRING(":CdAuto"SS_TAP(X_ENTER));
-      }
-        break;
-    case VIM_WORK_DIR_MIGRATIONS:
-      if (record->event.pressed) {
-        SEND_STRING(":CdMigrations"SS_TAP(X_ENTER));
-      }
-        break;
-    case VIM_WORK_DIR_FE_TOP:
-      if (record->event.pressed) {
-        SEND_STRING(":CdFeResources"SS_TAP(X_ENTER));
       }
         break;
     case VIM_WORK_DIR_FE_SHOPPING:

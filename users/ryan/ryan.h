@@ -128,16 +128,8 @@ enum custom_keycodes {
   VIM_NERD_COPY,
   VIM_NERD_MOVE,
   VIM_NERD_DEL,
-  VIM_DIR_CLIENT,
-  VIM_DIR_SERVER,
-  VIM_DIR_DATA,
-  VIM_DIR_DEPLOY,
-  VIM_DIR_DEVTOOLS,
   VIM_ULTISNIPS_TRIGGER,
   VIM_WORK_DIR_ROOT,
-  VIM_WORK_DIR_MIGRATIONS,
-  VIM_WORK_DIR_AUTO,
-  VIM_WORK_DIR_FE_TOP,
   VIM_WORK_DIR_FE_SHOPPING,
   VIM_WORK_SHOW_NOTES,
   VIM_WORK_SHOW_SCRIPTS,
@@ -342,8 +334,8 @@ enum custom_keycodes {
 #define COLE_R20     LT(_VHOME,KC_K)
 #define COLE_R21     LT(_IDEA,KC_H)
 #define COLE_R22     LT(_MISC,KC_COMM)
-#define COLE_R23     MT(MOD_RALT,KC_DOT)
-#define COLE_R24     MT(MOD_RGUI,KC_QUOT)
+#define COLE_R23     MT(MOD_LALT,KC_DOT)
+#define COLE_R24     MT(MOD_LGUI,KC_QUOT)
 #define COLE_R25     XXXXXXX
 #define COLE_R30     LT(_RAISE,KC_SPC)
 #define COLE_R31     OSL(_SFT)
@@ -501,11 +493,11 @@ enum custom_keycodes {
 #define RAIS_L04     XXXXXXX
 #define RAIS_L05     XXXXXXX
 #define RAIS_L10     XXXXXXX
-#define RAIS_L11     VIM_DIR_DEPLOY
-#define RAIS_L12     VIM_DIR_DATA
-#define RAIS_L13     VIM_DIR_SERVER
-#define RAIS_L14     VIM_DIR_CLIENT
-#define RAIS_L15     VIM_DIR_DEVTOOLS
+#define RAIS_L11     XXXXXXX
+#define RAIS_L12     XXXXXXX
+#define RAIS_L13     XXXXXXX
+#define RAIS_L14     XXXXXXX
+#define RAIS_L15     XXXXXXX
 #define RAIS_L20     XXXXXXX
 #define RAIS_L21     KC_F1
 #define RAIS_L22     KC_F2
@@ -903,9 +895,9 @@ enum custom_keycodes {
 #define VWNAV_L34     _______
 #define VWNAV_L35     _______
 
-#define VWNAV_R00     VIM_WORK_DIR_AUTO
+#define VWNAV_R00     _______
 #define VWNAV_R01     VIM_WORK_DIR_ROOT
-#define VWNAV_R02     VIM_WORK_DIR_FE_TOP
+#define VWNAV_R02     _______
 #define VWNAV_R03     VIM_WORK_DIR_FE_SHOPPING
 #define VWNAV_R04     _______
 #define VWNAV_R05     _______
@@ -915,7 +907,7 @@ enum custom_keycodes {
 #define VWNAV_R13     _______
 #define VWNAV_R14     VIM_WORK_SPRING_CONFIGS
 #define VWNAV_R15     _______
-#define VWNAV_R20     VIM_WORK_DIR_MIGRATIONS
+#define VWNAV_R20     _______
 #define VWNAV_R21     _______
 #define VWNAV_R22     VIM_WORK_GET_MIGRATIONS_CLIENT
 #define VWNAV_R23     VIM_WORK_GET_MIGRATIONS_SHARED
