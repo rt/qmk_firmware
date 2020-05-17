@@ -15,10 +15,10 @@ The following pins are used:
 
 Make example for this keyboard (after setting up your build environment):
 
-    make handwired/mrkabuda:default
+    make handwired/mrkabuda:ryan
 
 To flash the firmware onto the microcontroller, run `make avrdude`, and press the reset button.
 
-    make handwired/mrkabuda:default:avrdude
+    make handwired/mrkabuda:ryan:avrdude
 
 See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).

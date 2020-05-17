@@ -339,7 +339,7 @@ enum custom_keycodes {
 #define COLE_R25     XXXXXXX
 #define COLE_R30     LT(_RAISE,KC_SPC)
 #define COLE_R31     OSL(_SFT)
-#define COLE_R32     LSFT(KC_QUOT)
+#define COLE_R32     KC_ESC
 #define COLE_R33     XXXXXXX
 #define COLE_R34     XXXXXXX
 #define COLE_R35     XXXXXXX
@@ -419,7 +419,7 @@ enum custom_keycodes {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |  !=  |  <=  |   <  |   >  |  >=  |   ?  |   _  |   +  |   {  |   }  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      | Esc  |      | Bspc |AltBk | Del  |      |      |      |
+ * |      |      |      |      |      |      | Bspc |AltBk | Del  |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 #define LOW_L00     XXXXXXX
@@ -444,7 +444,7 @@ enum custom_keycodes {
 #define LOW_L31     XXXXXXX
 #define LOW_L32     XXXXXXX
 #define LOW_L33     _______
-#define LOW_L34     KC_ESC
+#define LOW_L34     XXXXXXX
 #define LOW_L35     XXXXXXX
 
 #define LOW_R00     KC_CIRC
